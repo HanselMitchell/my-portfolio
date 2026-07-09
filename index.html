@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hansel Mitchell Tumanggor | IoT Engineer & Researcher</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        accent: {
+                            DEFAULT: '#a6dfff', // Soft Cyan
+                            hover: '#82cfff',
+                            text: '#006B99' // Darker cyan for text contrast on light mode
+                        },
+                        lightBg: '#f0f4f8', 
+                        lightCard: '#ffffff',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Poppins', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'glow': '0 0 15px rgba(166, 223, 255, 0.5)',
+                        'glow-hover': '0 10px 25px rgba(166, 223, 255, 0.7)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #f8fafc;
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(200, 100%, 82%, 0.2) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, hsla(200, 100%, 82%, 0.2) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        /* Glassmorphism for Light Mode */
+        .glass-light {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #006B99 0%, #0ea5e9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Hover Lift effect */
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(166, 223, 255, 0.4);
+            border-color: #a6dfff;
+        }
+
+        /* Scroll Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Timeline styles */
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom, #a6dfff, transparent);
+            z-index: 0;
+        }
+        @media (max-width: 768px) {
+            .timeline-line {
+                left: 1.5rem;
+            }
+        }
+        
+        /* View Transitions */
+        .view-hidden {
+            display: none !important;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="text-slate-800 font-sans selection:bg-accent selection:text-slate-900 overflow-x-hidden">
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 w-full z-50 transition-all duration-300" id="navbar">
+        <div class="glass-light border-b border-transparent transition-colors duration-300" id="nav-container">
+            <div class="container mx-auto px-6 lg:px-12 py-4 flex justify-between items-center">
+                <!-- Logo -->
+                <a href="#" onclick="showHome()" class="font-heading font-bold text-2xl tracking-tighter text-slate-900">
+                    Hansel<span class="text-accent-text">.</span>
+                </a>
+
+                <!-- Desktop Nav -->
+                <nav class="hidden md:flex items-center space-x-8" id="desktop-nav">
+                    <a href="#home" class="text-sm font-medium text-slate-600 hover:text-accent-text transition-colors">Home</a>
+                    <a href="#about" class="text-sm font-medium text-slate-600 hover:text-accent-text transition-colors">About</a>
+                    <a href="#experience" class="text-sm font-medium text-slate-600 hover:text-accent-text transition-colors">Experience</a>
+                    <a href="#skills" class="text-sm font-medium text-slate-600 hover:text-accent-text transition-colors">Skills</a>
+                    <a href="#projects" class="text-sm font-medium text-slate-600 hover:text-accent-text transition-colors">Projects</a>
+                    <a href="#awards" class="text-sm font-medium text-slate-600 hover:text-accent-text transition-colors">Awards</a>
+                    <a href="#contact" class="text-sm font-medium text-slate-600 hover:text-accent-text transition-colors">Contact</a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobileMenuBtn" class="text-2xl text-slate-800 focus:outline-none">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobileMenu" class="hidden absolute top-full left-0 w-full glass-light border-b border-white/50 flex flex-col px-6 py-4 space-y-4 md:hidden shadow-lg">
+            <a href="#home" class="mobile-link text-lg font-medium text-slate-700 hover:text-accent-text">Home</a>
+            <a href="#about" class="mobile-link text-lg font-medium text-slate-700 hover:text-accent-text">About</a>
+            <a href="#experience" class="mobile-link text-lg font-medium text-slate-700 hover:text-accent-text">Experience</a>
+            <a href="#skills" class="mobile-link text-lg font-medium text-slate-700 hover:text-accent-text">Skills</a>
+            <a href="#projects" class="mobile-link text-lg font-medium text-slate-700 hover:text-accent-text">Projects</a>
+            <a href="#awards" class="mobile-link text-lg font-medium text-slate-700 hover:text-accent-text">Awards</a>
+            <a href="#contact" class="mobile-link text-lg font-medium text-slate-700 hover:text-accent-text">Contact</a>
+        </div>
+    </header>
+
+    <!-- MAIN PORTFOLIO VIEW -->
+    <main id="main-view" class="view-section relative w-full pt-10">
+        
+        <!-- Hero Section -->
+        <section id="home" class="min-h-screen flex items-center relative overflow-hidden pt-20">
+            <!-- Background decorative elements -->
+            <div class="absolute top-20 -left-20 w-72 h-72 bg-accent rounded-full mix-blend-multiply filter blur-[128px] opacity-40 animate-pulse"></div>
+            <div class="absolute bottom-20 -right-20 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-[128px] opacity-40 animate-pulse" style="animation-delay: 2s;"></div>
+
+            <!-- Added extra horizontal padding here to center content more -->
+            <div class="container mx-auto px-8 md:px-12 lg:px-20 relative z-10">
+                <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
+                    
+                    <!-- Text Content -->
+                    <div class="flex-1 text-center lg:text-left reveal lg:pr-10">
+                        <div class="inline-block px-4 py-1.5 mb-6 rounded-full border border-accent bg-white/60 text-accent-text font-medium text-sm shadow-sm">
+                            👋 Welcome to my portfolio
+                        </div>
+                        <h1 class="font-heading text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4 text-slate-900">
+                            Hansel Mitchell <br />
+                            <span class="text-gradient">Tumanggor</span>
+                        </h1>
+                        <h2 class="text-xl md:text-2xl font-semibold text-slate-600 mb-6">
+                            IoT Engineer & Researcher
+                        </h2>
+                        <p class="text-slate-600 text-lg mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                            Computer Engineering student with experience in a range of engineering research projects. Highly motivated and results-driven professional with 5 years of leadership experience.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-10">
+                            <a href="#projects" class="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-accent text-slate-900 font-semibold hover:bg-accent-hover hover:shadow-glow-hover transition-all duration-300 text-center">
+                                View My Work
+                            </a>
+                            <a href="#contact" class="w-full sm:w-auto px-8 py-3.5 rounded-lg border-2 border-accent text-accent-text font-semibold hover:bg-accent/20 transition-all duration-300 text-center bg-white/50">
+                                Contact Me
+                            </a>
+                        </div>
+                        
+                        <div class="flex items-center justify-center lg:justify-start gap-5">
+                            <a href="https://www.linkedin.com/in/hansel-mitchell-tumanggor" target="_blank" class="w-12 h-12 rounded-full glass-light flex items-center justify-center text-xl text-slate-700 hover:text-accent-text hover:-translate-y-1 transition-all duration-300 shadow-md border-white" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/HanselMitchell" target="_blank" class="w-12 h-12 rounded-full glass-light flex items-center justify-center text-xl text-slate-700 hover:text-accent-text hover:-translate-y-1 transition-all duration-300 shadow-md border-white" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="mailto:hanselmitchell03@gmail.com" class="w-12 h-12 rounded-full glass-light flex items-center justify-center text-xl text-slate-700 hover:text-accent-text hover:-translate-y-1 transition-all duration-300 shadow-md border-white" aria-label="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Image/Visual Content -->
+                    <div class="flex-1 relative reveal flex justify-center lg:justify-start lg:pl-24">
+                        <div class="relative w-72 h-72 md:w-96 md:h-96 mx-auto lg:mx-0">
+                            <!-- Decorative ring -->
+                            <div class="absolute inset-0 rounded-full border-2 border-dashed border-accent animate-[spin_20s_linear_infinite]"></div>
+                            
+                            <div class="absolute inset-4 rounded-full overflow-hidden border-4 border-white shadow-2xl z-10 bg-white">
+                                <img src="./images/profile.png" alt="Hansel Mitchell Tumanggor" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 relative">
+            <div class="container mx-auto px-8 md:px-12 lg:px-20 max-w-7xl">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4 text-slate-900">About <span class="text-accent-text">Me</span></h2>
+                    <div class="w-20 h-1 bg-accent mx-auto rounded-full shadow-glow"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <!-- Bio -->
+                    <div class="reveal">
+                        <h3 class="text-2xl font-heading font-semibold mb-6 text-slate-800">Driven by Innovation & Engineering</h3>
+                        <p class="text-slate-600 mb-4 leading-relaxed">
+                            My academic journey is deeply rooted in my passion for Mathematics, Electronic Circuits, Artificial Intelligence, and the Internet of Things (IoT). I thrive on bridging the gap between hardware functionality and intelligent software to solve real-world problems.
+                        </p>
+                        <p class="text-slate-600 mb-8 leading-relaxed">
+                            I am honored to be a full-ride scholar under the prestigious <strong>LPDP</strong> (Lembaga Pengelola Dana Pendidikan) and <strong>Widia Scholarship</strong> programs, which fuel my dedication to advancing technology for community impact.
+                        </p>
+                        <a href="https://drive.google.com/drive/folders/1721WVQpd6H07C_9qtRcugU3gxWYgwwZP?usp=sharing" target="_blank" class="inline-flex w-max px-8 py-3 rounded-lg bg-slate-800 text-white font-medium hover:bg-slate-700 transition-colors shadow-lg items-center gap-2 hover:shadow-xl transform hover:-translate-y-1 duration-300">
+                            <i class="fas fa-download"></i> Download CV
+                        </a>
+                    </div>
+
+                    <!-- Info Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 reveal" style="transition-delay: 200ms;">
+                        <div class="glass-light p-6 rounded-xl card-hover border-l-4 border-l-accent border-white">
+                            <i class="fas fa-user text-accent-text text-xl mb-3 block"></i>
+                            <h4 class="text-sm text-slate-500 mb-1">Name</h4>
+                            <p class="font-semibold text-slate-800">Hansel Mitchell Tumanggor</p>
+                        </div>
+                        <div class="glass-light p-6 rounded-xl card-hover border-l-4 border-l-accent border-white">
+                            <i class="fas fa-graduation-cap text-accent-text text-xl mb-3 block"></i>
+                            <h4 class="text-sm text-slate-500 mb-1">Education</h4>
+                            <p class="font-semibold text-slate-800 text-sm">BINUS University, B.Eng. in Computer Engineering</p>
+                        </div>
+                        <div class="glass-light p-6 rounded-xl card-hover border-l-4 border-l-accent border-white">
+                            <i class="fas fa-map-marker-alt text-accent-text text-xl mb-3 block"></i>
+                            <h4 class="text-sm text-slate-500 mb-1">Location</h4>
+                            <p class="font-semibold text-slate-800">Jakarta, Indonesia</p>
+                        </div>
+                        <div class="glass-light p-6 rounded-xl card-hover border-l-4 border-l-accent border-white">
+                            <i class="fas fa-briefcase text-accent-text text-xl mb-3 block"></i>
+                            <h4 class="text-sm text-slate-500 mb-1">Availability</h4>
+                            <p class="font-semibold text-emerald-600">Open for Opportunities</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-20 relative">
+            <div class="container mx-auto px-6 md:px-12 lg:px-20 max-w-6xl">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4 text-slate-900">Experience & <span class="text-accent-text">Leadership</span></h2>
+                    <div class="w-20 h-1 bg-accent mx-auto rounded-full shadow-glow"></div>
+                </div>
+
+                <div class="relative w-full mx-auto">
+                    <!-- Timeline Line -->
+                    <div class="timeline-line hidden md:block"></div>
+                    <div class="timeline-line md:hidden left-6"></div> <!-- Mobile Line -->
+
+                    <!-- REFACTORED CARDS TO FIX MOBILE DOUBLE-PRINT BUG -->
+
+                    <!-- Card 1: Research Assistant (Left on Desktop) -->
+                    <div class="relative z-10 flex flex-col md:flex-row justify-center items-center mb-12 reveal w-full">
+                        <!-- Desktop Left Text -->
+                        <div class="hidden md:block md:w-[45%] text-right pr-12">
+                            <h3 class="text-xl font-bold text-accent-text">Part-Time Research Assistant</h3>
+                            <h4 class="text-lg font-medium mb-1 text-slate-800">BINUS Maker Innovation Space</h4>
+                            <p class="text-xs font-semibold text-slate-500 mb-2">Sep 2025 - Present</p>
+                            <p class="text-slate-600 text-sm">Optimized data acquisition frameworks across 3+ core engineering projects using C++/Python firmware for ESP32 and Raspberry Pi. Accelerated publication of 2 research papers.</p>
+                        </div>
+                        <!-- Center Dot -->
+                        <div class="hidden md:flex flex-shrink-0 w-[10%] justify-center z-10">
+                            <div class="w-5 h-5 bg-accent rounded-full shadow-glow border-4 border-white"></div>
+                        </div>
+                        <!-- Desktop Right Empty -->
+                        <div class="hidden md:block md:w-[45%]"></div>
+                        
+                        <!-- Mobile View Card -->
+                        <div class="md:hidden w-full pl-12 relative">
+                            <div class="absolute left-[18px] top-6 w-4 h-4 bg-accent rounded-full shadow-glow border-4 border-white z-10"></div>
+                            <div class="glass-light p-6 rounded-xl card-hover border-l-4 border-accent">
+                                <h3 class="text-lg font-bold text-accent-text">Part-Time Research Assistant</h3>
+                                <h4 class="font-medium mb-1 text-slate-800">BINUS Maker Innovation Space</h4>
+                                <p class="text-xs font-semibold text-slate-500 mb-2">Sep 2025 - Present</p>
+                                <p class="text-slate-600 text-sm">Optimized data acquisition frameworks using C++/Python for ESP32 and Raspberry Pi. Accelerated 2 research publications.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Assembly Technician (Right on Desktop) -->
+                    <div class="relative z-10 flex flex-col md:flex-row justify-center items-center mb-12 reveal w-full">
+                        <!-- Desktop Left Empty -->
+                        <div class="hidden md:block md:w-[45%]"></div>
+                        <!-- Center Dot -->
+                        <div class="hidden md:flex flex-shrink-0 w-[10%] justify-center z-10">
+                            <div class="w-5 h-5 bg-accent rounded-full shadow-glow border-4 border-white"></div>
+                        </div>
+                        <!-- Desktop Right Text -->
+                        <div class="hidden md:block md:w-[45%] text-left pl-12">
+                            <h3 class="text-xl font-bold text-accent-text">Assembly Technician</h3>
+                            <h4 class="text-lg font-medium mb-1 text-slate-800">IEEE BINUS</h4>
+                            <p class="text-xs font-semibold text-slate-500 mb-2">Feb 2025 - Present</p>
+                            <p class="text-slate-600 text-sm">Achieved 100% operational readiness across multiple high-stakes engineering competitions. Executed high-precision soldering for 15+ custom multi-layer PCBs, reducing failure rates to 0%.</p>
+                        </div>
+
+                        <!-- Mobile View Card -->
+                        <div class="md:hidden w-full pl-12 relative">
+                            <div class="absolute left-[18px] top-6 w-4 h-4 bg-accent rounded-full shadow-glow border-4 border-white z-10"></div>
+                            <div class="glass-light p-6 rounded-xl card-hover border-l-4 border-accent">
+                                <h3 class="text-lg font-bold text-accent-text">Assembly Technician</h3>
+                                <h4 class="font-medium mb-1 text-slate-800">IEEE BINUS</h4>
+                                <p class="text-xs font-semibold text-slate-500 mb-2">Feb 2025 - Present</p>
+                                <p class="text-slate-600 text-sm">Assembled and debugged 3+ complex hardware prototypes with 100% success rate on 15+ custom PCBs.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: BINUS Robotics (Left on Desktop) -->
+                    <div class="relative z-10 flex flex-col md:flex-row justify-center items-center mb-12 reveal w-full">
+                        <div class="hidden md:block md:w-[45%] text-right pr-12">
+                            <h3 class="text-xl font-bold text-accent-text">Founder & President</h3>
+                            <h4 class="text-lg font-medium mb-1 text-slate-800">BINUS Robotics & AI Network</h4>
+                            <p class="text-xs font-semibold text-slate-500 mb-2">Jan 2026 - Present</p>
+                            <p class="text-slate-600 text-sm">Spearheaded the creation and strategic roadmap of a premier student organization dedicated to advancing cutting-edge robotics research, AI development, and regional technical competitions.</p>
+                        </div>
+                        <div class="hidden md:flex flex-shrink-0 w-[10%] justify-center z-10">
+                            <div class="w-5 h-5 bg-accent rounded-full shadow-glow border-4 border-white"></div>
+                        </div>
+                        <div class="hidden md:block md:w-[45%]"></div>
+                        
+                        <!-- Mobile View Card -->
+                        <div class="md:hidden w-full pl-12 relative">
+                            <div class="absolute left-[18px] top-6 w-4 h-4 bg-accent rounded-full shadow-glow border-4 border-white z-10"></div>
+                            <div class="glass-light p-6 rounded-xl card-hover border-l-4 border-accent">
+                                <h3 class="text-lg font-bold text-accent-text">Founder & President</h3>
+                                <h4 class="font-medium mb-1 text-slate-800">BINUS Robotics & AI Network</h4>
+                                <p class="text-xs font-semibold text-slate-500 mb-2">Jan 2026 - Present</p>
+                                <p class="text-slate-600 text-sm">Founded student organization dedicated to robotics research, AI, and technical competitions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 4: Web Developer (Right on Desktop) -->
+                    <div class="relative z-10 flex flex-col md:flex-row justify-center items-center mb-12 reveal w-full">
+                        <div class="hidden md:block md:w-[45%]"></div>
+                        <div class="hidden md:flex flex-shrink-0 w-[10%] justify-center z-10">
+                            <div class="w-5 h-5 bg-accent rounded-full shadow-glow border-4 border-white"></div>
+                        </div>
+                        <div class="hidden md:block md:w-[45%] text-left pl-12">
+                            <h3 class="text-xl font-bold text-accent-text">Part-Time Website Developer</h3>
+                            <h4 class="text-lg font-medium mb-1 text-slate-800">MTE Solution</h4>
+                            <p class="text-xs font-semibold text-slate-500 mb-2">Jul 2025 - Sep 2025</p>
+                            <p class="text-slate-600 text-sm">Improved website stability and user experience by identifying, triaging, and resolving over 50+ critical software bugs and cross-browser compatibility issues.</p>
+                        </div>
+                        
+                        <!-- Mobile View Card -->
+                        <div class="md:hidden w-full pl-12 relative">
+                            <div class="absolute left-[18px] top-6 w-4 h-4 bg-accent rounded-full shadow-glow border-4 border-white z-10"></div>
+                            <div class="glass-light p-6 rounded-xl card-hover border-l-4 border-accent">
+                                <h3 class="text-lg font-bold text-accent-text">Website Developer</h3>
+                                <h4 class="font-medium mb-1 text-slate-800">MTE Solution</h4>
+                                <p class="text-xs font-semibold text-slate-500 mb-2">Jul 2025 - Sep 2025</p>
+                                <p class="text-slate-600 text-sm">Resolved 50+ critical software bugs to improve stability and cross-browser UX.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: Research Ambassador (Left on Desktop) -->
+                    <div class="relative z-10 flex flex-col md:flex-row justify-center items-center mb-12 reveal w-full">
+                        <div class="hidden md:block md:w-[45%] text-right pr-12">
+                            <h3 class="text-xl font-bold text-accent-text">Research Ambassador</h3>
+                            <h4 class="text-lg font-medium mb-1 text-slate-800">BINUS University</h4>
+                            <p class="text-xs font-semibold text-slate-500 mb-2">Dec 2025 - Present</p>
+                            <p class="text-slate-600 text-sm">Fostered a vibrant undergraduate research culture by leading campus-wide campaigns. Expanded academic knowledge bases by collaborating with faculty on cross-disciplinary studies.</p>
+                        </div>
+                        <div class="hidden md:flex flex-shrink-0 w-[10%] justify-center z-10">
+                            <div class="w-5 h-5 bg-accent rounded-full shadow-glow border-4 border-white"></div>
+                        </div>
+                        <div class="hidden md:block md:w-[45%]"></div>
+                        
+                        <!-- Mobile View Card -->
+                        <div class="md:hidden w-full pl-12 relative">
+                            <div class="absolute left-[18px] top-6 w-4 h-4 bg-accent rounded-full shadow-glow border-4 border-white z-10"></div>
+                            <div class="glass-light p-6 rounded-xl card-hover border-l-4 border-accent">
+                                <h3 class="text-lg font-bold text-accent-text">Research Ambassador</h3>
+                                <h4 class="font-medium mb-1 text-slate-800">BINUS University</h4>
+                                <p class="text-xs font-semibold text-slate-500 mb-2">Dec 2025 - Present</p>
+                                <p class="text-slate-600 text-sm">Led research campaigns and collaborated with faculty on cross-disciplinary academic initiatives.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6: Trashly (Right on Desktop) -->
+                    <div class="relative z-10 flex flex-col md:flex-row justify-center items-center reveal w-full">
+                        <div class="hidden md:block md:w-[45%]"></div>
+                        <div class="hidden md:flex flex-shrink-0 w-[10%] justify-center z-10">
+                            <div class="w-5 h-5 bg-accent rounded-full shadow-glow border-4 border-white"></div>
+                        </div>
+                        <div class="hidden md:block md:w-[45%] text-left pl-12">
+                            <h3 class="text-xl font-bold text-accent-text">Founder & Project Manager</h3>
+                            <h4 class="text-lg font-medium mb-1 text-slate-800">Trashly Indonesia</h4>
+                            <p class="text-xs font-semibold text-slate-500 mb-2">Apr 2023 - Present</p>
+                            <p class="text-slate-600 text-sm">Scaled nation-wide sustainability initiatives by founding an NGO focused on designing and implementing automated waste management systems and eco-educational programs.</p>
+                        </div>
+                        
+                        <!-- Mobile View Card -->
+                        <div class="md:hidden w-full pl-12 relative">
+                            <div class="absolute left-[18px] top-6 w-4 h-4 bg-accent rounded-full shadow-glow border-4 border-white z-10"></div>
+                            <div class="glass-light p-6 rounded-xl card-hover border-l-4 border-accent">
+                                <h3 class="text-lg font-bold text-accent-text">Founder & Project Manager</h3>
+                                <h4 class="font-medium mb-1 text-slate-800">Trashly Indonesia</h4>
+                                <p class="text-xs font-semibold text-slate-500 mb-2">Apr 2023 - Present</p>
+                                <p class="text-slate-600 text-sm">Founded NGO scaling automated waste management systems and eco-educational programs in schools.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 relative bg-white/40">
+            <div class="container mx-auto px-8 lg:px-12 max-w-7xl">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4 text-slate-900">Technologies I <span class="text-accent-text">Work With</span></h2>
+                    <div class="w-20 h-1 bg-accent mx-auto rounded-full shadow-glow"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Hardware/IoT -->
+                    <div class="glass-light rounded-2xl p-6 card-hover reveal" style="transition-delay: 100ms;">
+                        <div class="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center text-accent-text text-2xl mb-6 shadow-sm">
+                            <i class="fas fa-microchip"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-slate-800">Hardware & IoT</h3>
+                        <ul class="space-y-2 text-slate-600 text-sm">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-accent-text text-xs"></i> Embedded Systems Engineering</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-accent-text text-xs"></i> IoT Development</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-accent-text text-xs"></i> PCB Design</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-accent-text text-xs"></i> FPGA Digital Logic Design</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-accent-text text-xs"></i> Robotics</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-accent-text text-xs"></i> 3D Printing</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-accent-text text-xs"></i> SMD Reflow Oven</li>
+                        </ul>
+                    </div>
+
+                    <!-- Languages -->
+                    <div class="glass-light rounded-2xl p-6 card-hover reveal" style="transition-delay: 200ms;">
+                        <div class="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center text-accent-text text-2xl mb-6 shadow-sm">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-slate-800">Languages</h3>
+                        <ul class="space-y-2 text-slate-600 text-sm">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-accent-text text-xs"></i> C++</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-accent-text text-xs"></i> Python</li>
+                        </ul>
+                    </div>
+
+                    <!-- Data & Back-End -->
+                    <div class="glass-light rounded-2xl p-6 card-hover reveal" style="transition-delay: 300ms;">
+                        <div class="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center text-accent-text text-2xl mb-6 shadow-sm">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-slate-800">Data & Back-End</h3>
+                        <ul class="space-y-2 text-slate-600 text-sm">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-accent-text text-xs"></i> Firebase</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-accent-text text-xs"></i> SQL</li>
+                        </ul>
+                    </div>
+
+                    <!-- Soft Skills -->
+                    <div class="glass-light rounded-2xl p-6 card-hover reveal" style="transition-delay: 400ms;">
+                        <div class="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center text-accent-text text-2xl mb-6 shadow-sm">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4 text-slate-800">Soft Skills</h3>
+                        <ul class="space-y-2 text-slate-600 text-sm">
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-accent-text text-xs"></i> Leadership</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-accent-text text-xs"></i> Teamwork</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-accent-text text-xs"></i> Public Speaking</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check text-accent-text text-xs"></i> Research & Development</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 relative overflow-hidden">
+            <div class="container mx-auto px-8 lg:px-12 max-w-7xl">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4 text-slate-900">Featured <span class="text-accent-text">Projects</span></h2>
+                    <div class="w-20 h-1 bg-accent mx-auto rounded-full shadow-glow mb-4"></div>
+                    <p class="text-slate-600">Click on any project to read the full case study.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
+                    
+                    <!-- Project 1: PANTARAU -->
+                    <!-- Changed h-48 to h-72 for taller images -->
+                    <div onclick="openProject('pantarau')" class="glass-light rounded-2xl overflow-hidden card-hover group cursor-pointer flex flex-col h-full reveal border-white shadow-md">
+                        <div class="relative h-72 w-full overflow-hidden bg-slate-200">
+                            <img src="./images/pantarau.png" alt="PANTARAU" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow bg-white/50">
+                            <h3 class="text-xl font-bold mb-2 font-heading text-slate-800 group-hover:text-accent-text transition-colors">PANTARAU: USV</h3>
+                            <p class="text-slate-600 text-sm mb-4 flex-grow line-clamp-3">
+                                Low Cost Unmanned Surface Vessel (USV) for Sedimentation Survey and Semi-Automated Waste Cleaning.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-auto">
+                                <span class="px-2 py-1 bg-accent/20 text-accent-text text-xs rounded-md font-medium">IoT</span>
+                                <span class="px-2 py-1 bg-accent/20 text-accent-text text-xs rounded-md font-medium">Microcontroller</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: AIMS -->
+                    <div onclick="openProject('aims')" class="glass-light rounded-2xl overflow-hidden card-hover group cursor-pointer flex flex-col h-full reveal border-white shadow-md" style="transition-delay: 100ms;">
+                        <div class="relative h-72 w-full overflow-hidden bg-slate-200">
+                            <img src="./images/aims.jpeg" alt="AIMS Project" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow bg-white/50">
+                            <h3 class="text-xl font-bold mb-2 font-heading text-slate-800 group-hover:text-accent-text transition-colors">AIMS</h3>
+                            <p class="text-slate-600 text-sm mb-4 flex-grow line-clamp-3">
+                                Smart Infusion and Patient Vital Signs Monitoring System with Intelligent Text-to-Speech Notifications.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-auto">
+                                <span class="px-2 py-1 bg-accent/20 text-accent-text text-xs rounded-md font-medium">IoT</span>
+                                <span class="px-2 py-1 bg-accent/20 text-accent-text text-xs rounded-md font-medium">Microcontroller</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: NUSA KULTURA -->
+                    <div onclick="openProject('nusa')" class="glass-light rounded-2xl overflow-hidden card-hover group cursor-pointer flex flex-col h-full reveal border-white shadow-md">
+                        <div class="relative h-72 w-full overflow-hidden bg-slate-200">
+                            <img src="./images/nusakultura.jpeg" alt="Nusa Kultura" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow bg-white/50">
+                            <h3 class="text-xl font-bold mb-2 font-heading text-slate-800 group-hover:text-accent-text transition-colors">NUSA KULTURA</h3>
+                            <p class="text-slate-600 text-sm mb-4 flex-grow line-clamp-3">
+                                Preserving Cultural Heritage through an Interactive Board Game to Mitigate Identity Crisis.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-auto">
+                                <span class="px-2 py-1 bg-accent/20 text-accent-text text-xs rounded-md font-medium">Game Design</span>
+                                <span class="px-2 py-1 bg-accent/20 text-accent-text text-xs rounded-md font-medium">Research</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 4: ASPUR -->
+                    <div onclick="openProject('aspur')" class="glass-light rounded-2xl overflow-hidden card-hover group cursor-pointer flex flex-col h-full reveal border-white shadow-md" style="transition-delay: 100ms;">
+                        <div class="relative h-72 w-full overflow-hidden bg-slate-200">
+                            <img src="./images/aspur.jpeg" alt="ASPUR AI" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        </div>
+                        <div class="p-6 flex flex-col flex-grow bg-white/50">
+                            <h3 class="text-xl font-bold mb-2 font-heading text-slate-800 group-hover:text-accent-text transition-colors">ASPUR (Asisten Dapur)</h3>
+                            <p class="text-slate-600 text-sm mb-4 flex-grow line-clamp-3">
+                                AI-Powered Smart Culinary Assistant Device for Automated Recipe Personalization using LLMs.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mt-auto">
+                                <span class="px-2 py-1 bg-accent/20 text-accent-text text-xs rounded-md font-medium">AI/LLM</span>
+                                <span class="px-2 py-1 bg-accent/20 text-accent-text text-xs rounded-md font-medium">Embedded System</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- View Full Portfolio Button -->
+                <div class="mt-16 flex justify-center reveal">
+                    <a href="https://drive.google.com/drive/folders/1g-iAsNRwUfaUBbNhrfchuDcF1VG7d7Us?usp=sharing" target="_blank" class="px-8 py-4 rounded-xl border-2 border-accent text-slate-800 font-bold hover:bg-accent/20 transition-all duration-300 shadow-sm hover:shadow-glow-hover flex items-center gap-3 group bg-white/50">
+                        <i class="fab fa-google-drive text-xl text-accent-text group-hover:scale-110 transition-transform"></i>
+                        View Full Portfolio
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Honors & Awards Section -->
+        <section id="awards" class="py-20 relative bg-white/40">
+            <div class="container mx-auto px-6 max-w-6xl">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4 text-slate-900">Honors & <span class="text-accent-text">Awards</span></h2>
+                    <div class="w-20 h-1 bg-accent mx-auto rounded-full shadow-glow"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Award 1 -->
+                    <div class="glass-light border-white p-6 rounded-xl flex items-start gap-4 card-hover reveal shadow-sm" style="transition-delay: 100ms;">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mt-1">
+                            <i class="fas fa-trophy text-accent-text text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-900">2nd Winner</h3>
+                            <p class="text-slate-700 text-sm font-medium">IoT Design & Application Expo</p>
+                            <p class="text-xs text-slate-500 mt-1">BINUS X Stuttgart Media Univ., 2026</p>
+                        </div>
+                    </div>
+
+                    <!-- Award 2 -->
+                     <div class="glass-light border-white p-6 rounded-xl flex items-start gap-4 card-hover reveal shadow-sm">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mt-1">
+                            <i class="fas fa-flag-checkered text-accent-text text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-900">Top 30 Panelist</h3>
+                            <p class="text-slate-700 text-sm font-medium">Int'l Research Paper Competition</p>
+                            <p class="text-xs text-slate-500 mt-1">National University of Singapore, 2025</p>
+                        </div>
+                    </div>
+
+                    <!-- Award 3 -->
+                     <div class="glass-light border-white p-6 rounded-xl flex items-start gap-4 card-hover reveal shadow-sm">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mt-1">
+                            <i class="fas fa-trophy text-accent-text text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-900">2nd Winner</h3>
+                            <p class="text-slate-700 text-sm font-medium">Tech Innovation in Engineering</p>
+                            <p class="text-xs text-slate-500 mt-1">Syiah Kuala University, 2025</p>
+                        </div>
+                    </div>
+
+                    <!-- Award 4 -->
+                    <div class="glass-light border-white p-6 rounded-xl flex items-start gap-4 card-hover reveal shadow-sm">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mt-1">
+                            <i class="fas fa-trophy text-accent-text text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-900">1st Winner & Best Pres.</h3>
+                            <p class="text-slate-700 text-sm font-medium">Electronics & Robotics Innovation</p>
+                            <p class="text-xs text-slate-500 mt-1">State University of Jakarta, 2025</p>
+                        </div>
+                    </div>
+
+                    <!-- Award 5 -->
+                    <div class="glass-light border-white p-6 rounded-xl flex items-start gap-4 card-hover reveal shadow-sm" style="transition-delay: 100ms;">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mt-1">
+                            <i class="fas fa-flag-checkered text-accent-text text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-900">Top 8 Finalist</h3>
+                            <p class="text-slate-700 text-sm font-medium">Toyota AIGIS Competition</p>
+                            <p class="text-xs text-slate-500 mt-1">BINUS University, 2025</p>
+                        </div>
+                    </div>
+
+                    <!-- Award 6 -->
+                    <div class="glass-light border-white p-6 rounded-xl flex items-start gap-4 card-hover reveal shadow-sm" style="transition-delay: 100ms;">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mt-1">
+                            <i class="fas fa-trophy text-accent-text text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-900">Favorite Champion</h3>
+                            <p class="text-slate-700 text-sm font-medium">B-GAMEPETITION</p>
+                            <p class="text-xs text-slate-500 mt-1">BINUS University, 2025</p>
+                        </div>
+                    </div>
+
+                    <!-- Award 7 -->
+                    <div class="glass-light border-white p-6 rounded-xl flex items-start gap-4 card-hover reveal shadow-sm">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mt-1">
+                            <i class="fas fa-flag-checkered text-accent-text text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-900">Top 5 Finalist</h3>
+                            <p class="text-slate-700 text-sm font-medium">HERoes Competition</p>
+                            <p class="text-xs text-slate-500 mt-1">USAID, 2025</p>
+                        </div>
+                    </div>
+
+                    <!-- Award 8 -->
+                    <div class="glass-light border-white p-6 rounded-xl flex items-start gap-4 card-hover reveal shadow-sm" style="transition-delay: 100ms;">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mt-1">
+                            <i class="fas fa-award text-accent-text text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-900">Silver Medal</h3>
+                            <p class="text-slate-700 text-sm font-medium">Invention and Innovation Fair</p>
+                            <p class="text-xs text-slate-500 mt-1">IYSA, 2025</p>
+                        </div>
+                    </div>
+
+                    <!-- Award 9 -->
+                    <div class="glass-light border-white p-6 rounded-xl flex items-start gap-4 card-hover reveal shadow-sm" style="transition-delay: 100ms;">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mt-1">
+                            <i class="fas fa-flag-checkered text-accent-text text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-900">Top 5 Finalist</h3>
+                            <p class="text-slate-700 text-sm font-medium">IMCB X ISG Marketing Plan</p>
+                            <p class="text-xs text-slate-500 mt-1">BINUS University, 2024</p>
+                        </div>
+                    </div>
+
+                    <!-- Award 10 -->
+                    <div class="glass-light border-white p-6 rounded-xl flex items-start gap-4 card-hover reveal shadow-sm">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mt-1">
+                            <i class="fas fa-star text-accent-text text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-900">Best AI Implementation</h3>
+                            <p class="text-slate-700 text-sm font-medium">AI for Community Impact Summer</p>
+                            <p class="text-xs text-slate-500 mt-1">National University of Singapore, 2023</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Award 12 -->
+                    <div class="glass-light border-white p-6 rounded-xl flex items-start gap-4 card-hover reveal shadow-sm">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mt-1">
+                            <i class="fas fa-award text-accent-text text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-900">Silver Medal (TIMO)</h3>
+                            <p class="text-slate-700 text-sm font-medium">Thai Int'l Math Olympiad</p>
+                            <p class="text-xs text-slate-500 mt-1">OCEC, 2023</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Award 15 -->
+                    <div class="glass-light border-white p-6 rounded-xl flex items-start gap-4 card-hover reveal shadow-sm">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center mt-1">
+                            <i class="fas fa-award text-accent-text text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-lg text-slate-900">Silver Medal (AMO)</h3>
+                            <p class="text-slate-700 text-sm font-medium">American Mathematics Olympiad</p>
+                            <p class="text-xs text-slate-500 mt-1">SIMCC, 2021</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 relative">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <div class="text-center mb-16 reveal">
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4 text-slate-900">Get In <span class="text-accent-text">Touch</span></h2>
+                    <div class="w-20 h-1 bg-accent mx-auto rounded-full shadow-glow"></div>
+                    <p class="mt-4 text-slate-600">Have a project in mind or want to collaborate? Let's talk!</p>
+                </div>
+
+                <div class="glass-light border-white p-8 md:p-10 rounded-2xl shadow-xl reveal">
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium mb-2 text-slate-700">Name</label>
+                                <input type="text" id="name" required class="w-full bg-white/70 border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium mb-2 text-slate-700">Email</label>
+                                <input type="email" id="email" required class="w-full bg-white/70 border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium mb-2 text-slate-700">Subject</label>
+                            <input type="text" id="subject" required class="w-full bg-white/70 border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium mb-2 text-slate-700">Message</label>
+                            <textarea id="message" rows="5" required class="w-full bg-white/70 border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent transition-all resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-4 rounded-lg bg-accent text-slate-900 font-bold hover:bg-accent-hover transition-all duration-300 shadow-sm hover:shadow-glow-hover flex justify-center items-center gap-2 group">
+                            Send Message 
+                            <i class="fas fa-paper-plane group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <footer class="py-8 border-t border-slate-200 bg-white/50">
+            <div class="container mx-auto px-6 text-center text-slate-500 text-sm">
+                &copy; 2026 Hansel Mitchell Tumanggor. All rights reserved.
+            </div>
+        </footer>
+    </main>
+
+    <!-- PROJECT DETAIL VIEW -->
+    <article id="project-detail-view" class="view-section view-hidden w-full min-h-screen pt-28 pb-20 bg-lightBg relative z-40">
+        <div class="container mx-auto px-6 max-w-5xl">
+            <!-- Back Button -->
+            <button onclick="closeProject()" class="mb-8 flex items-center gap-2 text-slate-600 hover:text-accent-text transition-colors font-medium group">
+                <i class="fas fa-arrow-left group-hover:-translate-x-1 transition-transform"></i> Back to Portfolio
+            </button>
+            
+            <div class="glass-light rounded-3xl overflow-hidden shadow-xl border-white bg-white/80">
+                <!-- EXACT 1920x717 DIMENSION ENFORCEMENT via aspect-ratio -->
+                <div class="w-full relative bg-slate-200 overflow-hidden" style="aspect-ratio: 1920 / 717;">
+                    <img id="pd-image" src="" alt="Project Cover" class="w-full h-full object-cover">
+                    <!-- Link overlay -->
+                    <div id="pd-links" class="absolute bottom-6 right-6 flex gap-3 z-10">
+                        <!-- Links injected via JS -->
+                    </div>
+                </div>
+
+                <!-- Dynamic Content -->
+                <div class="p-8 md:p-12">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+                        <h1 id="pd-title" class="text-2xl md:text-4xl font-bold font-heading text-slate-900 leading-tight"></h1>
+                    </div>
+                    
+                    <div class="inline-block px-4 py-2 mb-8 rounded-lg border border-accent bg-accent/10 text-accent-text font-semibold text-sm">
+                        <i class="fas fa-user-tag mr-2"></i> <span id="pd-role"></span>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="md:col-span-2 space-y-6">
+                            <section>
+                                <h3 class="text-xl font-bold text-slate-800 mb-3 border-b-2 border-accent w-max pb-1">Project Description</h3>
+                                <p id="pd-description" class="text-slate-600 leading-relaxed whitespace-pre-line"></p>
+                            </section>
+                            
+                            <section>
+                                <h3 class="text-xl font-bold text-slate-800 mb-3 border-b-2 border-accent w-max pb-1">Key Learning</h3>
+                                <div class="bg-blue-50 border-l-4 border-accent p-4 rounded-r-lg">
+                                    <p id="pd-learning" class="text-slate-700 italic"></p>
+                                </div>
+                            </section>
+                        </div>
+
+                        <div class="space-y-6">
+                            <section class="glass-light p-6 rounded-xl border border-white shadow-sm bg-white/50">
+                                <h3 class="text-lg font-bold text-slate-800 mb-3 flex items-center gap-2"><i class="fas fa-trophy text-amber-500"></i> Core Accomplishment</h3>
+                                <p id="pd-accomplishment" class="text-slate-700 text-sm leading-relaxed"></p>
+                            </section>
+                            
+                            <section class="glass-light p-6 rounded-xl border border-white shadow-sm bg-white/50">
+                                <h3 class="text-lg font-bold text-slate-800 mb-3">Context</h3>
+                                <p id="pd-context" class="text-slate-700 text-sm font-medium"></p>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+
+    <!-- Scripts -->
+    <script>
+        // --- Project Data Store ---
+        const projectsData = {
+            'pantarau': {
+                title: "PANTARAU: Low-Cost Unmanned Surface Vessel (USV) for Sedimentation Survey and Semi-Automated Waste Cleaning",
+                role: "Project Manager & IoT Engineer",
+                context: "GROUP PROJECT",
+                accomplishment: "Reduced aquatic depth mapping costs by up to 95% compared to traditional manned vessel methods by architecting an ESP32-based custom PCB circuitry integrated with an IP-68 ultrasonic sonar, GPS Neo-6m, and a GY-511 compass module.",
+                description: "The PANTARAU project was initiated to tackle critical environmental infrastructure crises in Indonesia, specifically the premature siltation of over 70% of the nation's major dams and reservoirs due to extreme sedimentation. This ecological problem is heavily compounded during rainy seasons, where the volume of domestic waste entering water reservoirs surges by up to 300%, triggering severe urban flooding and disrupting municipal water clean-water supplies. Traditional bathemis surveys and manual waste collection methods are heavily restrictive due to high operational costs, fossil fuel consumption, and the requirement of large technical crews.\n\nTo bridge this gap, PANTARAU was developed as an affordable, eco-friendly, and autonomous dual-mission catamaran vessel. The hardware leverages an ESP32 microcontroller to continuously capture real-time water depth and coordinates, pushing telemetry data dynamically to a cloud-hosted Firebase platform via a SIM800L module. Concurrently, the mechanical assembly utilizes a specialized net structure to automatically skim and gather active surface debris as the vessel navigates, presenting a highly scalable tool for early-stage automated water management.",
+                learning: "I mastered advanced embedded systems integration, remote multi-sensor calibration under unpredictable aquatic conditions, and real-time cloud database telemetry syncing. Additionally, I learned how to manage a cross-functional engineering pipeline from schematic simulation to field validation.",
+                image: "./images/pantarau1.png",
+                links: [
+                    { url: "https://drive.google.com/drive/folders/1mrL9YuUGdcmwX-Zbfbmd94bm-tokOU7F?usp=drive_link", icon: "fab fa-google-drive", label: "Details" }
+                ]
+            },
+            'aims': {
+                title: "AIMS: Smart Infusion and Patient Vital Signs Monitoring System",
+                role: "Project Manager & IoT Engineer",
+                context: "GROUP PROJECT",
+                accomplishment: "Successfully achieved a 100% drip detection success rate and a 99.37% weight calibration precision during 15 hours of live deployment testing by developing an ESP32-C3 firmware framework that pairs an LM393 Optocoupler fluid sensor with a highly calibrated HX711 Load Cell network.",
+                description: "Within healthcare facilities, traditional patient ward monitoring remains highly dependent on manual periodic checks by nursing staff. In high-stress or understaffed hospital environments, this manual approach often leads to dangerous delayed responses when intravenous (IV) fluid bags run dry or when unforeseen tube blockages occur. Furthermore, critical fluctuations in a patient's initial vital signs can go unnoticed between regular rounds, directly risking patient safety and adding immense cognitive workloads to the healthcare workforce.\n\nAIMS directly resolves these systemic vulnerabilities by introducing a proactive, non-invasive IoT medical automation device. The hardware apparatus combines a high-precision load cell system to track fluid volume by weight along with an infrared optocoupler sensor to monitor drop frequencies. Simultaneously, vital metrics like heart rate, oxygen saturation (SpO2), and body temperature are captured using MAX30102 and MCP9808 modules. All data flows seamlessly to a central ReactJS dashboard while an algorithmic engine evaluates health trends to instantly prompt automated Text-to-Speech audio notifications in nurse standby stations.",
+                learning: "Working on this project deepened my understanding of high-precision biomedical signal processing, hardware calibration constraints, and edge-case error handling for mission-critical IoT ecosystems. I also absorbed the value of user-centric design when prototyping technology meant for high-stakes clinical settings.",
+                image: "./images/aims1.png",
+                links: [
+                    { url: "https://drive.google.com/drive/folders/1Gn80snAqpBucLcFhv-HIGnoVIca_-bj0?usp=drive_link", icon: "fab fa-google-drive", label: "Details" }
+                ]
+            },
+            'nusa': {
+                title: "NUSA KULTURA: Preserving Cultural Heritage through an Interactive Board Game",
+                role: "Game Designer & Researcher",
+                context: "GROUP PROJECT",
+                accomplishment: "Drove a statistically significant cognitive score leap from a 14.67 pre-test mean to a 21.33 post-test average (p<0.001) among 63 national youth participants by conceptualizing the interactive board game mechanics, writing the gamification logic rules, and engineering the structural game layouts.",
+                description: "Modern globalization and the explosive rise of foreign digital media consumption have alienated many Indonesian youth from their rich local heritage and cultural ancestry. This structural shift often results in a cultural identity crisis among younger generations, as traditional arts, regional folklore, and foundational historical knowledge are increasingly viewed as outdated or unengaging. Conventional learning methods used in classrooms heavily rely on rote textbook memorization, which lacks interactive retention and fails to foster deep emotional connections to local history.\n\nNusa Kultura addresses this socio-educational problem as an advanced V2 iteration of the original TIRTA research framework, transforming heritage education into a competitive, medium-difficulty board game experience. The narrative centers on the Indonesian mythological dragon king 'Antaboga,' requiring players to take on the roles of cosmic explorers navigating 38 physical provinces. By combining strategic hex-mapping, dynamic blessing/disaster ability card decks, and an interactive resource mechanic tied directly to traditional congklak tokens, the game builds an immersive cognitive landscape that effectively gamifies complex cultural education.",
+                learning: "I gained vital insights into behavioral psychology, game balance mechanics, and empirical statistical validation using quantitative paired sample t-Test evaluation metrics. I learned how structural storytelling can be leveraged as an interface to solve complex modern societal problems.",
+                image: "./images/nusakultura1.png",
+                links: [
+                    { url: "https://drive.google.com/drive/folders/1F0Wn5Yn_iR2TPrVtLLnjWPC-OoPoDEEG?usp=sharing", icon: "fab fa-google-drive", label: "Details" }
+                ]
+            },
+            'aspur': {
+                title: "ASPUR: AI-Powered Smart Culinary Assistant Device",
+                role: "Project Manager & Embedded Systems Engineer",
+                context: "GROUP PROJECT",
+                accomplishment: "Implemented an active ambient voice-command parsing system with an optimal 150-token generative threshold by configuring a localized Python speech recognition framework on a Raspberry Pi 4 board connected directly to DeepSeek pro models via OpenRouter secure API channels.",
+                description: "While artificial intelligence has rapidly optimized various areas of the modern smart home—such as automated climate control, smart TVs, and cellular systems—the domestic kitchen environment remains mostly unoptimized. Preparing high-quality, balanced home-cooked meals continues to heavily depend on an individual's personal culinary skill level and static recipe knowledge. This often results in daily decision fatigue over meal selection, poor ingredient utilization, and a substantial accumulation of domestic household food waste.\n\nASPUR solves this issue by serving as a localized smart-home hardware appliance powered entirely by state-of-the-art conversational Large Language Models (LLMs). The device integrates a Raspberry Pi 4 core processor linked with an LCD display and dedicated audio speaker hardware. Users simply speak the chaotic combination of raw raw ingredients currently sitting inside their home refrigerator; the system transcribes the speech to text via Google Voice recognition, filters the prompt through targeted system pre-prompts, and generates detailed, tailored cooking workflows back to the user via natural speech synthesis.",
+                learning: "This project expanded my expertise in conversational UI/UX design, cloud LLM API integration pipelines, and optimizing Python-based script execution on low-power microprocessing hardware. I learned how to turn complex artificial intelligence models into accessible, tactile consumer electronics products.",
+                image: "./images/aspur1.png",
+                links: [
+                    { url: "https://drive.google.com/drive/folders/1oAq5-AW3JsVbrKyxijgfngX_rjI-VuzM?usp=drive_link", icon: "fab fa-google-drive", label: "Details" }
+                ]
+            },
+        };
+
+        // DOM Elements
+        const mainView = document.getElementById('main-view');
+        const detailView = document.getElementById('project-detail-view');
+        const desktopNav = document.getElementById('desktop-nav');
+        let currentScrollY = 0;
+
+        // View Transition Logic (SPA)
+        function openProject(id) {
+            const data = projectsData[id];
+            if(!data) return;
+
+            // Save scroll pos
+            currentScrollY = window.scrollY;
+
+            // Populate DOM
+            document.getElementById('pd-title').textContent = data.title;
+            document.getElementById('pd-role').textContent = data.role;
+            document.getElementById('pd-accomplishment').textContent = data.accomplishment;
+            document.getElementById('pd-context').textContent = data.context;
+            document.getElementById('pd-description').textContent = data.description;
+            document.getElementById('pd-learning').textContent = data.learning;
+            document.getElementById('pd-image').src = data.image;
+
+            // Populate Links
+            const linksContainer = document.getElementById('pd-links');
+            linksContainer.innerHTML = ''; // clear existing
+            data.links.forEach(link => {
+                const btn = document.createElement('a');
+                btn.href = link.url;
+                btn.target = "_blank"; 
+                btn.className = "px-6 py-3 bg-slate-900 text-white rounded-xl text-sm font-bold hover:bg-accent-text hover:-translate-y-1 transition-transform flex items-center gap-2 shadow-xl";
+                btn.innerHTML = `<i class="${link.icon} text-lg"></i> ${link.label}`;
+                linksContainer.appendChild(btn);
+            });
+
+            // Transition Fix: Instantly hide main view, show detail, and snap to top
+            document.documentElement.style.scrollBehavior = 'auto'; 
+            document.documentElement.classList.remove('scroll-smooth');
+            
+            mainView.classList.add('view-hidden');
+            desktopNav.classList.add('view-hidden'); 
+
+            detailView.classList.remove('view-hidden');
+            detailView.classList.add('fade-in'); 
+            
+            window.scrollTo(0, 0); 
+        }
+
+        function closeProject() {
+            detailView.classList.add('view-hidden');
+            detailView.classList.remove('fade-in');
+            
+            desktopNav.classList.remove('view-hidden');
+            
+            mainView.classList.remove('view-hidden');
+            mainView.classList.add('fade-in');
+            
+            window.scrollTo(0, currentScrollY); 
+            
+            setTimeout(() => {
+                document.documentElement.classList.add('scroll-smooth'); 
+                document.documentElement.style.scrollBehavior = 'smooth';
+            }, 50);
+        }
+
+        function showHome() {
+            if(!detailView.classList.contains('view-hidden')) {
+                closeProject();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Mobile Menu Toggle ---
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            const menuIcon = mobileMenuBtn.querySelector('i');
+
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                if (mobileMenu.classList.contains('hidden')) {
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                } else {
+                    menuIcon.classList.remove('fa-bars');
+                    menuIcon.classList.add('fa-times');
+                }
+            });
+
+            // Close mobile menu on link click
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    menuIcon.classList.remove('fa-times');
+                    menuIcon.classList.add('fa-bars');
+                    showHome();
+                });
+            });
+
+            // --- Sticky Navbar Effect ---
+            const navbarContainer = document.getElementById('nav-container');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    navbarContainer.classList.add('shadow-md', 'bg-white/90');
+                    navbarContainer.classList.remove('border-transparent');
+                } else {
+                    navbarContainer.classList.remove('shadow-md', 'bg-white/90');
+                    navbarContainer.classList.add('border-transparent');
+                }
+            });
+
+            // --- Scroll Reveal Animations ---
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const revealOptions = {
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px"
+            };
+
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target); 
+                    }
+                });
+            }, revealOptions);
+
+            revealElements.forEach(el => {
+                revealOnScroll.observe(el);
+            });
+
+            setTimeout(() => {
+                revealElements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top <= window.innerHeight) {
+                        el.classList.add('active');
+                    }
+                });
+            }, 100);
+
+            // --- Form Submission Simulation ---
+            const contactForm = document.getElementById('contactForm');
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const btn = contactForm.querySelector('button[type="submit"]');
+                const originalText = btn.innerHTML;
+                
+                btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Sending...';
+                btn.disabled = true;
+                
+                setTimeout(() => {
+                    const toast = document.createElement('div');
+                    toast.className = 'fixed bottom-5 right-5 glass-light p-4 rounded-lg shadow-glow border-l-4 border-l-accent z-50 flex items-center gap-3 translate-y-20 opacity-0 transition-all duration-300 bg-white';
+                    toast.innerHTML = '<i class="fas fa-check-circle text-emerald-500 text-xl"></i><div><h4 class="font-bold text-sm text-slate-900">Success</h4><p class="text-xs text-slate-600">Message sent successfully!</p></div>';
+                    document.body.appendChild(toast);
+                    
+                    requestAnimationFrame(() => {
+                        toast.classList.remove('translate-y-20', 'opacity-0');
+                    });
+                    
+                    contactForm.reset();
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                    
+                    setTimeout(() => {
+                        toast.classList.add('translate-y-20', 'opacity-0');
+                        setTimeout(() => toast.remove(), 300);
+                    }, 3000);
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+</html>
