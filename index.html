@@ -4,17 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hansel Mitchell Tumanggor | IoT Engineer & Researcher</title>
-    <meta name="description" content="Hansel Mitchell Tumanggor: IoT engineer and researcher, Computer Engineering at BINUS University, Widia & BIM scholar. Embedded systems, custom PCBs, AI integration and robotics. 10 first-place competition finishes.">
+    <meta name="description" content="Hansel Mitchell Tumanggor: IoT engineer and researcher, Computer Engineering at BINUS University, Widia & BIM scholar. Embedded systems, custom PCBs, AI integration and robotics. 40+ awards, 10 first-place finishes.">
     <meta name="author" content="Hansel Mitchell Tumanggor">
-    <meta name="theme-color" content="#070b14">
+    <meta name="theme-color" content="#f4f7fb" id="meta-theme">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://hanselmitchell.vercel.app/">
     <meta property="og:title" content="Hansel Mitchell Tumanggor | IoT Engineer & Researcher">
-    <meta property="og:description" content="Embedded systems, IoT, PCB design, AI integration and robotics. Computer Engineering at BINUS University.">
+    <meta property="og:description" content="Embedded systems, IoT, PCB design, AI integration and robotics. Computer Engineering at BINUS University. 40+ awards.">
     <meta property="og:image" content="https://hanselmitchell.vercel.app/images/profile.png">
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://hanselmitchell.vercel.app/">
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23070b14'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial Narrow,Arial,sans-serif' font-weight='700' font-size='30' fill='%23a6dfff'%3EHM%3C/text%3E%3C/svg%3E">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1424'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='Arial Narrow,Arial,sans-serif' font-weight='700' font-size='30' fill='%23a6dfff'%3EHM%3C/text%3E%3C/svg%3E">
+
+    <!-- Theme: light by default; dark only if the visitor chose it -->
+    <script>
+        try { if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark'); } catch (e) {}
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,8 +33,8 @@
             theme: {
                 extend: {
                     colors: {
-                        ink: { 950: '#05080f', 900: '#070b14', 850: '#0b111d', 800: '#111827' },
-                        accent: { 100: '#e3f5ff', 200: '#c6eaff', 300: '#a6dfff', 400: '#6cc7f2', 500: '#33a9dd' }
+                        ink: { 950: '#05080f', 900: '#070b14', 850: '#0b111d' },
+                        accent: { 100: '#e3f5ff', 200: '#c6eaff', 300: '#a6dfff', 400: '#6cc7f2', 500: '#33a9dd', 600: '#0d78a8' }
                     },
                     fontFamily: {
                         sans: ['Inter', 'system-ui', 'sans-serif'],
@@ -57,143 +62,188 @@
     </script>
 
     <style>
+        /* ================= THEME TOKENS ================= */
         :root {
-            --bg: #070b14;
-            --accent: #a6dfff;
-            --line: rgba(255, 255, 255, 0.08);
+            color-scheme: light;
+            --bg: #f4f7fb;            --bg-rgb: 244 247 251;
+            --strong: #0b1424;        --body: #334155;
+            --muted: #56667b;         --faint: #8391a3;
+            --accent-t: #0d78a8;      --accent: #a6dfff;
+            --line: rgba(15, 23, 42, 0.10);
+            --soft: rgba(15, 23, 42, 0.035);
+            --soft-h: rgba(15, 23, 42, 0.06);
+            --panel-a: rgba(255, 255, 255, 0.92);
+            --panel-b: rgba(255, 255, 255, 0.70);
+            --panel-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 18px 40px -26px rgba(15, 23, 42, 0.28);
+            --lift-shadow: 0 30px 60px -30px rgba(17, 134, 184, 0.35);
+            --metal: linear-gradient(180deg, #0b1424 0%, #17304e 52%, #1b7db3 100%);
+            --stroke: rgba(13, 120, 168, 0.8);
+            --gold: #a16207;          --gold-bg: rgba(234, 179, 8, 0.12);   --gold-b: rgba(202, 138, 4, 0.35);
+            --chip: rgba(51, 169, 221, 0.10);  --chip-b: rgba(51, 169, 221, 0.38);
+            --spot: rgba(51, 169, 221, 0.95);  --spot-2: rgba(51, 169, 221, 0.30);  --spot-fill: rgba(51, 169, 221, 0.07);
+            --btn: linear-gradient(180deg, #d4f0ff 0%, #9ad9f7 100%);
+            --btn-t: #052538;         --btn-b: rgba(13, 120, 168, 0.35);
+            --btn-shadow: inset 0 1px 0 rgba(255,255,255,.9), 0 10px 24px -12px rgba(17, 134, 184, 0.6);
+            --nav: rgba(244, 247, 251, 0.82);
+            --menu: rgba(255, 255, 255, 0.97);
+            --modal: #ffffff;
+            --backdrop: rgba(15, 23, 42, 0.45);
+            --glow: rgba(108, 199, 242, 0.42);
+            --ambient:
+                radial-gradient(70rem 45rem at 78% 0%, rgba(108, 199, 242, 0.24), transparent 60%),
+                radial-gradient(50rem 40rem at 0% 45%, rgba(51, 169, 221, 0.10), transparent 60%),
+                linear-gradient(180deg, #f8fbfe 0%, #f2f6fa 50%, #eef3f8 100%);
         }
-        html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
-        body {
-            background: var(--bg);
-            color: #c3cad6;
-            -webkit-font-smoothing: antialiased;
-        }
-        @media (prefers-reduced-motion: reduce) {
-            html { scroll-behavior: auto; }
-            *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-        }
-
-        /* Ambient backdrop: soft vignette + fine noise-free grain via gradients */
-        .ambient {
-            position: fixed; inset: 0; z-index: -1; pointer-events: none;
-            background:
+        html.dark, .theme-dark {
+            color-scheme: dark;
+            --bg: #070b14;            --bg-rgb: 7 11 20;
+            --strong: #ffffff;        --body: #c7cfdb;
+            --muted: #94a3b8;         --faint: #66758a;
+            --accent-t: #a6dfff;      --accent: #a6dfff;
+            --line: rgba(255, 255, 255, 0.09);
+            --soft: rgba(255, 255, 255, 0.035);
+            --soft-h: rgba(255, 255, 255, 0.06);
+            --panel-a: rgba(255, 255, 255, 0.045);
+            --panel-b: rgba(255, 255, 255, 0.02);
+            --panel-shadow: none;
+            --lift-shadow: 0 30px 60px -30px rgba(108, 199, 242, 0.35);
+            --metal: linear-gradient(180deg, #ffffff 0%, #eef7fd 38%, #b9dff5 70%, #7fc3e8 100%);
+            --stroke: rgba(166, 223, 255, 0.75);
+            --gold: #fcd34d;          --gold-bg: rgba(252, 211, 77, 0.10);  --gold-b: rgba(252, 211, 77, 0.28);
+            --chip: rgba(166, 223, 255, 0.12); --chip-b: rgba(166, 223, 255, 0.32);
+            --spot: rgba(166, 223, 255, 0.95); --spot-2: rgba(108, 199, 242, 0.35); --spot-fill: rgba(166, 223, 255, 0.07);
+            --btn: linear-gradient(180deg, #f4fbff 0%, #cfeafa 55%, #a6dfff 100%);
+            --btn-t: #05080f;         --btn-b: rgba(166, 223, 255, 0.5);
+            --btn-shadow: inset 0 1px 0 rgba(255,255,255,.8), 0 10px 30px -12px rgba(108, 199, 242, 0.6);
+            --nav: rgba(7, 11, 20, 0.78);
+            --menu: rgba(9, 14, 24, 0.97);
+            --modal: #0a0f1a;
+            --backdrop: rgba(5, 8, 15, 0.85);
+            --glow: rgba(108, 199, 242, 0.28);
+            --ambient:
                 radial-gradient(70rem 45rem at 78% 0%, rgba(108, 199, 242, 0.12), transparent 60%),
                 radial-gradient(50rem 40rem at 0% 45%, rgba(51, 169, 221, 0.06), transparent 60%),
                 linear-gradient(180deg, #0a0f1a 0%, #070b14 40%, #06090f 100%);
         }
 
-        /* Metallic, blue-tinted display type */
-        .metal {
-            background: linear-gradient(180deg, #ffffff 0%, #eef7fd 38%, #b9dff5 70%, #7fc3e8 100%);
-            -webkit-background-clip: text; background-clip: text;
-            color: transparent;
+        /* ================= SEMANTIC UTILITIES ================= */
+        .t-strong { color: var(--strong); }  .t-body { color: var(--body); }
+        .t-muted { color: var(--muted); }    .t-faint { color: var(--faint); }
+        .t-accent { color: var(--accent-t); } .t-gold { color: var(--gold); }
+        .h-strong:hover { color: var(--strong); } .h-accent:hover { color: var(--accent-t); }
+        .b-line { border-color: var(--line); }
+        .d-line > * { border-color: var(--line); }
+        .s-soft { background-color: var(--soft); } .h-soft:hover { background-color: var(--soft-h); }
+        .s-line { background-color: var(--line); }
+        .c-accent { background-color: var(--chip); border-color: var(--chip-b); }
+        .c-accent-b { border-color: var(--chip-b); }
+        .c-gold { background-color: var(--gold-bg); border-color: var(--gold-b); }
+
+        html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+        body { background: var(--bg); color: var(--body); -webkit-font-smoothing: antialiased; }
+        .theme-anim, .theme-anim * { transition: background-color .35s ease, color .35s ease, border-color .35s ease, box-shadow .35s ease !important; }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
         }
-        .outline-text {
-            color: transparent;
-            -webkit-text-stroke: 1.2px rgba(166, 223, 255, 0.75);
-        }
+
+        .ambient { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: var(--ambient); }
+
+        .metal { background: var(--metal); -webkit-background-clip: text; background-clip: text; color: transparent; }
+        .outline-text { color: transparent; -webkit-text-stroke: 1.2px var(--stroke); }
         .label { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; font-weight: 500; }
 
-        /* Glass panel */
         .panel {
-            background: linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02));
+            background: linear-gradient(180deg, var(--panel-a), var(--panel-b));
             border: 1px solid var(--line);
+            box-shadow: var(--panel-shadow);
             -webkit-backdrop-filter: blur(14px) saturate(140%);
                     backdrop-filter: blur(14px) saturate(140%);
         }
-        .lift { transition: transform .4s cubic-bezier(.2,.7,.2,1), border-color .3s ease, box-shadow .4s ease; }
-        .lift:hover { transform: translateY(-4px); box-shadow: 0 30px 60px -30px rgba(108, 199, 242, 0.35); }
+        .lift { transition: transform .4s cubic-bezier(.2,.7,.2,1), box-shadow .4s ease; }
+        .lift:hover { transform: translateY(-4px); box-shadow: var(--lift-shadow); }
 
-        /* Cursor spotlight: border lights up where the pointer is (and fades in as it approaches) */
+        /* Cursor spotlight */
         .spot { position: relative; isolation: isolate; }
         .spot::before {
             content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px;
-            background: radial-gradient(var(--spot-size, 280px) circle at var(--mx, -999px) var(--my, -999px),
-                        rgba(166, 223, 255, 0.95), rgba(108, 199, 242, 0.35) 35%, transparent 70%);
+            background: radial-gradient(var(--spot-size, 280px) circle at var(--mx, -999px) var(--my, -999px), var(--spot), var(--spot-2) 35%, transparent 70%);
             -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
             -webkit-mask-composite: xor; mask-composite: exclude;
             opacity: var(--spot-o, 0); transition: opacity .35s ease;
             pointer-events: none; z-index: 4;
         }
         .spot-fill {
-            background-image: radial-gradient(460px circle at var(--mx, -999px) var(--my, -999px), rgba(166, 223, 255, 0.07), transparent 60%),
-                              linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.02));
+            background-image: radial-gradient(460px circle at var(--mx, -999px) var(--my, -999px), var(--spot-fill), transparent 60%),
+                              linear-gradient(180deg, var(--panel-a), var(--panel-b));
         }
 
         /* Hero portrait */
         .portrait-mask {
-            -webkit-mask-image: linear-gradient(to bottom, #000 62%, transparent 98%);
-                    mask-image: linear-gradient(to bottom, #000 62%, transparent 98%);
-        }
-        .portrait-img {
-            filter: saturate(.82) contrast(1.06) brightness(.95) drop-shadow(0 0 40px rgba(108, 199, 242, 0.18));
-            transition: transform .6s cubic-bezier(.2,.7,.2,1);
-            will-change: transform;
+            -webkit-mask-image: linear-gradient(to bottom, #000 64%, transparent 98%);
+                    mask-image: linear-gradient(to bottom, #000 64%, transparent 98%);
         }
         .hero-glow {
-            position: absolute; width: 560px; height: 560px; border-radius: 9999px;
-            left: var(--gx, 50%); top: var(--gy, 45%);
-            transform: translate(-50%, -50%);
-            background: radial-gradient(circle, rgba(108, 199, 242, 0.28), rgba(108, 199, 242, 0.06) 45%, transparent 70%);
-            filter: blur(10px);
-            transition: left .5s cubic-bezier(.2,.7,.2,1), top .5s cubic-bezier(.2,.7,.2,1);
+            position: absolute; width: 580px; height: 580px; border-radius: 9999px;
+            left: var(--gx, 50%); top: var(--gy, 42%); transform: translate(-50%, -50%);
+            background: radial-gradient(circle, var(--glow), transparent 68%);
+            transition: left .6s cubic-bezier(.2,.7,.2,1), top .6s cubic-bezier(.2,.7,.2,1);
             pointer-events: none;
         }
+        .hero-shade { background: linear-gradient(to left, rgb(var(--bg-rgb) / .94) 0%, rgb(var(--bg-rgb) / .55) 22%, transparent 45%); }
+        .avail-shadow { text-shadow: 0 2px 24px rgb(var(--bg-rgb) / .95); }
         @keyframes arc-spin { to { transform: rotate(360deg); } }
         .arc { animation: arc-spin 40s linear infinite; transform-origin: 50% 50%; }
-        @keyframes twinkle { 0%, 100% { opacity: .35; transform: scale(.85) rotate(0deg); } 50% { opacity: 1; transform: scale(1) rotate(45deg); } }
+        @keyframes twinkle { 0%, 100% { opacity: .35; transform: scale(.85) rotate(0); } 50% { opacity: 1; transform: scale(1) rotate(45deg); } }
         .twinkle { animation: twinkle 4.5s ease-in-out infinite; transform-origin: center; }
-        @keyframes pulse-ring { 0%, 100% { opacity: .2; } 50% { opacity: .5; } }
+        @keyframes pulse-ring { 0%, 100% { opacity: .25; } 50% { opacity: .6; } }
         .pulse-ring { animation: pulse-ring 5s ease-in-out infinite; }
 
         /* Buttons */
-        .btn-metal {
-            background: linear-gradient(180deg, #f4fbff 0%, #cfeafa 55%, #a6dfff 100%);
-            color: #05080f;
-            box-shadow: inset 0 1px 0 rgba(255,255,255,.8), 0 10px 30px -12px rgba(108,199,242,.6);
-        }
-        .btn-metal:hover { filter: brightness(1.05); box-shadow: inset 0 1px 0 rgba(255,255,255,.9), 0 14px 36px -10px rgba(108,199,242,.75); }
+        .btn-metal { background: var(--btn); color: var(--btn-t); border: 1px solid var(--btn-b); box-shadow: var(--btn-shadow); }
+        .btn-metal:hover { filter: brightness(1.04) saturate(1.1); }
         .press { transition: transform .15s ease, filter .2s ease, box-shadow .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease; }
         .press:active { transform: scale(.97); }
 
         /* Nav */
-        .nav-link { position: relative; }
-        .nav-link::after {
-            content: ""; position: absolute; left: 50%; right: 50%; bottom: -8px; height: 1px;
-            background: var(--accent); transition: left .3s ease, right .3s ease;
-        }
+        #nav-shell.nav-scrolled { background: var(--nav); border-color: var(--line); -webkit-backdrop-filter: blur(18px); backdrop-filter: blur(18px); }
+        .nav-link { position: relative; color: var(--muted); transition: color .2s ease; }
+        .nav-link:hover, .nav-link.is-active { color: var(--strong); }
+        .nav-link::after { content: ""; position: absolute; left: 50%; right: 50%; bottom: -8px; height: 1px; background: var(--accent-t); transition: left .3s ease, right .3s ease; }
         .nav-link:hover::after, .nav-link.is-active::after { left: 0; right: 0; }
-        .nav-link.is-active { color: #fff; }
 
-        /* CTA sheen */
+        /* Theme toggle icon */
+        .theme-toggle .fa-moon { display: inline-block; } .theme-toggle .fa-sun { display: none; }
+        html.dark .theme-toggle .fa-moon { display: none; } html.dark .theme-toggle .fa-sun { display: inline-block; }
+
+        /* Dark CTA band (same in both themes) */
         .cta-sheen {
             background:
                 linear-gradient(115deg, rgba(255,255,255,0) 18%, rgba(198,234,255,0.22) 32%, rgba(255,255,255,0.05) 44%, rgba(255,255,255,0) 60%),
                 linear-gradient(90deg, #121b2b 0%, #0c1320 60%, #0a101b 100%);
         }
 
-        /* Reveal */
         .reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
         .reveal.is-visible { opacity: 1; transform: none; }
         .no-js .reveal { opacity: 1; transform: none; }
         @keyframes fade-up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
         .fade-up { animation: fade-up .45s cubic-bezier(.2,.7,.2,1) both; }
 
-        /* Modal */
-        #project-modal .modal-backdrop { opacity: 0; transition: opacity .3s ease; }
-        #project-modal .modal-panel { opacity: 0; transform: translateY(24px) scale(.98); transition: opacity .35s ease, transform .4s cubic-bezier(.2,.7,.2,1); }
+        #project-modal .modal-backdrop { background: var(--backdrop); opacity: 0; transition: opacity .3s ease; }
+        #project-modal .modal-panel { background: var(--modal); opacity: 0; transform: translateY(24px) scale(.98); transition: opacity .35s ease, transform .4s cubic-bezier(.2,.7,.2,1); }
         #project-modal.is-open .modal-backdrop { opacity: 1; }
         #project-modal.is-open .modal-panel { opacity: 1; transform: none; }
+        .modal-fade { background: linear-gradient(to top, var(--modal) 0%, transparent 70%); }
 
         a, button { -webkit-tap-highlight-color: transparent; }
-        ::selection { background: rgba(166, 223, 255, 0.35); color: #fff; }
-        :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+        ::selection { background: rgba(166, 223, 255, 0.5); color: var(--strong); }
+        :focus-visible { outline: 2px solid var(--accent-t); outline-offset: 3px; border-radius: 6px; }
     </style>
 </head>
 <body class="no-js font-sans overflow-x-hidden">
     <script>document.body.classList.remove('no-js');</script>
     <div class="ambient" aria-hidden="true"></div>
-    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[80] focus:px-4 focus:py-2 focus:rounded-md focus:bg-accent-300 focus:text-ink-950">Skip to content</a>
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[80] focus:px-4 focus:py-2 focus:rounded-md btn-metal">Skip to content</a>
 
     <!-- ================= NAV ================= -->
     <header class="fixed inset-x-0 top-0 z-50">
@@ -201,32 +251,35 @@
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 h-[72px] flex items-center justify-between">
                 <a href="#home" class="flex items-baseline gap-2.5" aria-label="Hansel Mitchell Tumanggor, back to top">
                     <span class="font-display text-[28px] leading-none tracking-wide metal">HM</span>
-                    <span class="hidden sm:inline text-[11px] tracking-[0.25em] uppercase text-slate-400">Tumanggor</span>
+                    <span class="hidden sm:inline text-[11px] tracking-[0.25em] uppercase t-muted">Tumanggor</span>
                 </a>
                 <nav class="hidden md:flex items-center gap-9 text-[12px] tracking-[0.18em] uppercase" aria-label="Primary">
-                    <a href="#work" class="nav-link text-slate-400 hover:text-white transition-colors">Work</a>
-                    <a href="#experience" class="nav-link text-slate-400 hover:text-white transition-colors">Experience</a>
-                    <a href="#awards" class="nav-link text-slate-400 hover:text-white transition-colors">Awards</a>
-                    <a href="#capabilities" class="nav-link text-slate-400 hover:text-white transition-colors">Capabilities</a>
-                    <a href="#contact" class="nav-link text-slate-400 hover:text-white transition-colors">Contact</a>
+                    <a href="#work" class="nav-link">Work</a>
+                    <a href="#experience" class="nav-link">Experience</a>
+                    <a href="#awards" class="nav-link">Awards</a>
+                    <a href="#capabilities" class="nav-link">Capabilities</a>
+                    <a href="#contact" class="nav-link">Contact</a>
                 </nav>
                 <div class="flex items-center gap-2">
+                    <button type="button" class="theme-toggle press grid place-items-center w-11 h-11 rounded-full border b-line t-body h-strong h-soft" aria-label="Switch to dark mode">
+                        <i class="fa-solid fa-moon" aria-hidden="true"></i><i class="fa-solid fa-sun" aria-hidden="true"></i>
+                    </button>
                     <a href="mailto:hanselmitchell03@gmail.com" class="press hidden sm:inline-flex items-center gap-2 pl-5 pr-4 py-2.5 rounded-full btn-metal text-[11px] font-semibold tracking-[0.18em] uppercase">
                         Let's talk <i class="fa-solid fa-arrow-right -rotate-45 text-[10px]" aria-hidden="true"></i>
                     </a>
-                    <button id="menu-btn" type="button" class="md:hidden grid place-items-center w-11 h-11 rounded-full border border-white/10 text-slate-200" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <button id="menu-btn" type="button" class="md:hidden grid place-items-center w-11 h-11 rounded-full border b-line t-body" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
                         <i class="fa-solid fa-bars" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
         </div>
-        <div id="mobile-menu" class="md:hidden hidden mx-4 mt-2 rounded-2xl panel bg-ink-900/95 p-2 shadow-2xl">
+        <div id="mobile-menu" class="md:hidden hidden mx-4 mt-2 rounded-2xl border b-line p-2 shadow-2xl" style="background: var(--menu)">
             <nav class="flex flex-col text-sm tracking-[0.15em] uppercase" aria-label="Mobile">
-                <a href="#work" class="px-4 py-3.5 rounded-xl text-slate-300 hover:bg-white/5">Work</a>
-                <a href="#experience" class="px-4 py-3.5 rounded-xl text-slate-300 hover:bg-white/5">Experience</a>
-                <a href="#awards" class="px-4 py-3.5 rounded-xl text-slate-300 hover:bg-white/5">Awards</a>
-                <a href="#capabilities" class="px-4 py-3.5 rounded-xl text-slate-300 hover:bg-white/5">Capabilities</a>
-                <a href="#contact" class="px-4 py-3.5 rounded-xl text-slate-300 hover:bg-white/5">Contact</a>
+                <a href="#work" class="px-4 py-3.5 rounded-xl t-body h-soft">Work</a>
+                <a href="#experience" class="px-4 py-3.5 rounded-xl t-body h-soft">Experience</a>
+                <a href="#awards" class="px-4 py-3.5 rounded-xl t-body h-soft">Awards</a>
+                <a href="#capabilities" class="px-4 py-3.5 rounded-xl t-body h-soft">Capabilities</a>
+                <a href="#contact" class="px-4 py-3.5 rounded-xl t-body h-soft">Contact</a>
                 <a href="mailto:hanselmitchell03@gmail.com" class="mt-1 px-4 py-3.5 rounded-xl btn-metal text-center font-semibold">Let's talk</a>
             </nav>
         </div>
@@ -237,86 +290,84 @@
         <section id="home" class="relative overflow-hidden pt-[104px] lg:pt-0">
             <div id="hero-stage" class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 flex flex-col lg:flex-row lg:min-h-[820px] lg:items-center">
 
-                <!-- Portrait (behind text on desktop) -->
+                <!-- Portrait -->
                 <div class="pointer-events-none lg:absolute lg:inset-y-0 lg:right-[min(0px,calc((1280px-100vw)/2))] lg:w-[calc(56%+max(0px,(100vw-1280px)/2))] order-2">
                     <div class="relative h-[420px] sm:h-[540px] lg:h-full mt-10 lg:mt-0">
                         <div class="hero-glow"></div>
-                        <!-- Rotating arc + pulse ring -->
                         <svg class="absolute left-1/2 top-[48%] -translate-x-1/2 -translate-y-1/2 w-[120%] max-w-[760px] aspect-square overflow-visible" viewBox="0 0 400 400" aria-hidden="true">
                             <defs>
                                 <linearGradient id="arcGrad" x1="0" y1="0" x2="1" y2="1">
-                                    <stop offset="0" stop-color="#a6dfff" stop-opacity="0"/>
-                                    <stop offset=".45" stop-color="#a6dfff" stop-opacity=".9"/>
-                                    <stop offset="1" stop-color="#a6dfff" stop-opacity="0"/>
+                                    <stop offset="0" stop-color="#33a9dd" stop-opacity="0"/>
+                                    <stop offset=".45" stop-color="#6cc7f2" stop-opacity=".95"/>
+                                    <stop offset="1" stop-color="#33a9dd" stop-opacity="0"/>
                                 </linearGradient>
                             </defs>
-                            <g class="arc"><circle cx="200" cy="200" r="168" fill="none" stroke="url(#arcGrad)" stroke-width="1" stroke-dasharray="520 540" /></g>
-                            <circle class="pulse-ring" cx="200" cy="200" r="186" fill="none" stroke="#a6dfff" stroke-opacity=".25" stroke-width=".6" stroke-dasharray="2 6"/>
+                            <g class="arc"><circle cx="200" cy="200" r="168" fill="none" stroke="url(#arcGrad)" stroke-width="1.1" stroke-dasharray="520 540"/></g>
+                            <circle class="pulse-ring" cx="200" cy="200" r="186" fill="none" stroke="#6cc7f2" stroke-opacity=".5" stroke-width=".6" stroke-dasharray="2 6"/>
                         </svg>
-                        <svg class="twinkle absolute right-[12%] top-[34%] w-6 h-6 text-accent-200" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 7 5 11.4 12 12-7 .6-11.4 5-12 12-.6-7-5-11.4-12-12 7-.6 11.4-5 12-12z"/></svg>
-                        <svg class="twinkle absolute left-[18%] top-[18%] w-3 h-3 text-accent-300" style="animation-delay:1.8s" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 7 5 11.4 12 12-7 .6-11.4 5-12 12-.6-7-5-11.4-12-12 7-.6 11.4-5 12-12z"/></svg>
+                        <svg class="twinkle absolute right-[12%] top-[34%] w-6 h-6 text-accent-400" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 7 5 11.4 12 12-7 .6-11.4 5-12 12-.6-7-5-11.4-12-12 7-.6 11.4-5 12-12z"/></svg>
+                        <svg class="twinkle absolute left-[18%] top-[18%] w-3 h-3 text-accent-500" style="animation-delay:1.8s" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 7 5 11.4 12 12-7 .6-11.4 5-12 12-.6-7-5-11.4-12-12 7-.6 11.4-5 12-12z"/></svg>
 
                         <div class="portrait-mask absolute inset-x-0 bottom-0 top-0 lg:top-[96px] flex items-end justify-center">
-                            <img id="portrait" src="./images/profile-cutout.webp" alt="Hansel Mitchell Tumanggor" width="1492" height="1400" fetchpriority="high"
-                                 class="portrait-img h-full w-auto max-w-none object-contain object-bottom">
+                            <img src="./images/profile-cutout.webp" alt="Hansel Mitchell Tumanggor" width="1987" height="1864" fetchpriority="high"
+                                 class="h-full w-auto max-w-none object-contain object-bottom">
                         </div>
-                        <div class="hidden lg:block absolute inset-0 bg-[linear-gradient(to_left,rgba(7,11,20,0.92)_0%,rgba(7,11,20,0.55)_22%,transparent_45%)]"></div>
+                        <div class="hidden lg:block absolute inset-0 hero-shade"></div>
                     </div>
                 </div>
 
                 <!-- Copy -->
                 <div class="relative z-10 order-1 lg:w-[62%] lg:pt-[72px] lg:pb-24 reveal">
-                    <p class="label text-accent-300">Hansel Mitchell Tumanggor</p>
+                    <p class="label t-accent">Hansel Mitchell Tumanggor</p>
                     <h1 class="mt-5 font-display uppercase leading-[0.86] tracking-[0.01em]">
                         <span class="block metal text-[clamp(4.2rem,15vw,10.5rem)]">IoT</span>
                         <span class="block metal text-[clamp(4.2rem,15vw,10.5rem)]">Engineer</span>
                         <span class="block outline-text text-[clamp(2rem,6.4vw,4.6rem)] mt-2">&amp; Researcher</span>
                     </h1>
-                    <p class="mt-7 max-w-md text-[15px] sm:text-base leading-relaxed text-slate-300/90 font-light">
+                    <p class="mt-7 max-w-md text-[15px] sm:text-base leading-relaxed t-body">
                         Computer Engineering at BINUS University. I build embedded systems from sensor to PCB to dashboard, and test them until there is a number worth reporting.
                     </p>
-                    <p class="mt-3 text-xs tracking-wide text-slate-500">Widia Scholarship &middot; Beasiswa Indonesia Maju (BIM)</p>
+                    <p class="mt-3 text-xs tracking-wide t-faint">Widia Scholarship &middot; Beasiswa Indonesia Maju (BIM)</p>
 
                     <div class="mt-9 flex flex-wrap items-center gap-x-7 gap-y-4">
                         <a href="#work" class="press inline-flex items-center gap-3 px-6 py-3.5 btn-metal text-[11px] font-semibold tracking-[0.2em] uppercase">
                             View my work <i class="fa-solid fa-arrow-right -rotate-45 text-[10px]" aria-hidden="true"></i>
                         </a>
-                        <a href="https://drive.google.com/drive/folders/1721WVQpd6H07C_9qtRcugU3gxWYgwwZP?usp=sharing" target="_blank" rel="noopener" class="group inline-flex items-center gap-3 text-[11px] font-medium tracking-[0.2em] uppercase text-slate-300 hover:text-white transition-colors">
+                        <a href="https://drive.google.com/drive/folders/1721WVQpd6H07C_9qtRcugU3gxWYgwwZP?usp=sharing" target="_blank" rel="noopener" class="group inline-flex items-center gap-3 text-[11px] font-medium tracking-[0.2em] uppercase t-body h-strong transition-colors">
                             Download CV <i class="fa-solid fa-arrow-down text-[10px] transition-transform group-hover:translate-y-0.5" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
 
-                <!-- Availability -->
-                <a href="#contact" class="hidden lg:block absolute right-10 bottom-32 z-10 text-right group [text-shadow:0_2px_24px_rgba(5,8,15,0.95)]">
-                    <span class="label text-slate-400 block">Available for</span>
+                <a href="#contact" class="hidden lg:block absolute right-10 bottom-32 z-10 text-right group avail-shadow">
+                    <span class="label t-muted block">Available for</span>
                     <span class="font-display text-[34px] leading-none uppercase metal block mt-2">Research &amp; Internships</span>
-                    <span class="label text-slate-400 group-hover:text-accent-300 transition-colors inline-flex items-center gap-2 mt-2">Get in touch <i class="fa-solid fa-arrow-right -rotate-45 text-[9px]" aria-hidden="true"></i></span>
+                    <span class="label t-muted h-accent transition-colors inline-flex items-center gap-2 mt-2">Get in touch <i class="fa-solid fa-arrow-right -rotate-45 text-[9px]" aria-hidden="true"></i></span>
                 </a>
             </div>
 
             <!-- Stats -->
             <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 -mt-6 lg:-mt-20">
-                <div class="panel rounded-2xl grid grid-cols-2 lg:grid-cols-4 divide-white/[0.07] [&>div]:border-white/[0.07] reveal">
-                    <div class="p-6 sm:p-8 text-center border-b border-r lg:border-b-0">
-                        <i class="fa-solid fa-trophy text-accent-300/90 text-lg" aria-hidden="true"></i>
-                        <p class="mt-3 font-light text-5xl sm:text-6xl text-white tabular-nums"><span data-countup="first">10</span><span class="text-accent-300">&times;</span></p>
-                        <p class="label text-slate-400 mt-3">First-place finishes</p>
+                <div class="panel rounded-2xl grid grid-cols-2 lg:grid-cols-4 reveal">
+                    <div class="p-6 sm:p-8 text-center border-b border-r lg:border-b-0 b-line">
+                        <i class="fa-solid fa-medal t-accent text-lg" aria-hidden="true"></i>
+                        <p class="mt-3 font-light text-5xl sm:text-6xl t-strong tabular-nums"><span data-countup="40">40</span><span class="t-accent">+</span></p>
+                        <p class="label t-muted mt-3">Awards &amp; honors</p>
                     </div>
-                    <div class="p-6 sm:p-8 text-center border-b lg:border-b-0 lg:border-r">
-                        <i class="fa-solid fa-medal text-accent-300/90 text-lg" aria-hidden="true"></i>
-                        <p class="mt-3 font-light text-5xl sm:text-6xl text-white tabular-nums"><span data-countup="all">22</span></p>
-                        <p class="label text-slate-400 mt-3">Competition results</p>
+                    <div class="p-6 sm:p-8 text-center border-b lg:border-b-0 lg:border-r b-line">
+                        <i class="fa-solid fa-trophy t-accent text-lg" aria-hidden="true"></i>
+                        <p class="mt-3 font-light text-5xl sm:text-6xl t-strong tabular-nums"><span data-countup="first">10</span><span class="t-accent">&times;</span></p>
+                        <p class="label t-muted mt-3">First-place finishes</p>
                     </div>
-                    <div class="p-6 sm:p-8 text-center border-r">
-                        <i class="fa-solid fa-microchip text-accent-300/90 text-lg" aria-hidden="true"></i>
-                        <p class="mt-3 font-light text-5xl sm:text-6xl text-white tabular-nums"><span data-countup="15">15</span><span class="text-accent-300">+</span></p>
-                        <p class="label text-slate-400 mt-3">Custom PCBs assembled</p>
+                    <div class="p-6 sm:p-8 text-center border-r b-line">
+                        <i class="fa-solid fa-microchip t-accent text-lg" aria-hidden="true"></i>
+                        <p class="mt-3 font-light text-5xl sm:text-6xl t-strong tabular-nums"><span data-countup="15">15</span><span class="t-accent">+</span></p>
+                        <p class="label t-muted mt-3">Custom PCBs assembled</p>
                     </div>
                     <div class="p-6 sm:p-8 text-center">
-                        <i class="fa-solid fa-file-lines text-accent-300/90 text-lg" aria-hidden="true"></i>
-                        <p class="mt-3 font-light text-5xl sm:text-6xl text-white tabular-nums"><span data-countup="2">2</span></p>
-                        <p class="label text-slate-400 mt-3">Conference papers, 2026</p>
+                        <i class="fa-solid fa-file-lines t-accent text-lg" aria-hidden="true"></i>
+                        <p class="mt-3 font-light text-5xl sm:text-6xl t-strong tabular-nums"><span data-countup="2">2</span></p>
+                        <p class="label t-muted mt-3">Conference papers, 2026</p>
                     </div>
                 </div>
             </div>
@@ -327,97 +378,89 @@
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
                 <div class="flex items-end justify-between gap-6 mb-8 reveal">
                     <div>
-                        <h2 class="label text-slate-300">Featured work</h2>
-                        <p class="mt-3 max-w-lg text-sm text-slate-500">Four builds, each with a measured result. Open one for the case study.</p>
+                        <h2 class="label t-body">Featured work</h2>
+                        <p class="mt-3 max-w-lg text-sm t-faint">Four builds, each with a measured result. Open one for the case study.</p>
                     </div>
-                    <a href="https://drive.google.com/drive/folders/1g-iAsNRwUfaUBbNhrfchuDcF1VG7d7Us?usp=sharing" target="_blank" rel="noopener" class="group shrink-0 label text-slate-400 hover:text-white transition-colors inline-flex items-center gap-3">
+                    <a href="https://drive.google.com/drive/folders/1g-iAsNRwUfaUBbNhrfchuDcF1VG7d7Us?usp=sharing" target="_blank" rel="noopener" class="group shrink-0 label t-muted h-strong transition-colors inline-flex items-center gap-3">
                         <span class="hidden sm:inline">All documentation</span><span class="sm:hidden">Archive</span> <i class="fa-solid fa-arrow-right text-[10px] transition-transform group-hover:translate-x-1" aria-hidden="true"></i>
                     </a>
                 </div>
 
-                <div class="grid sm:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-5">
-                    <!-- card template repeated -->
-                    <article class="group spot lift relative rounded-2xl overflow-hidden border border-white/10 bg-ink-850 aspect-[4/5] reveal">
-                        <img src="./images/pantarau.webp" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover opacity-80 transition duration-700 group-hover:scale-105 group-hover:opacity-90">
-                        <div class="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/55 to-ink-950/10"></div>
+                <!-- Project cards stay dark in both themes (photo + overlay) -->
+                <div class="theme-dark grid sm:grid-cols-2 xl:grid-cols-4 gap-4 lg:gap-5">
+                    <article class="group spot lift relative rounded-2xl overflow-hidden border b-line bg-ink-850 aspect-[4/5] reveal">
+                        <img src="./images/pantarau.webp" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover opacity-85 transition duration-700 group-hover:scale-105 group-hover:opacity-95">
+                        <div class="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/50 to-ink-950/5"></div>
                         <div class="relative h-full flex flex-col justify-between p-6">
                             <div class="flex items-center justify-between">
-                                <span class="font-mono text-[11px] text-slate-400">P/01</span>
-                                <span class="text-[11px] px-2.5 py-1 rounded-full bg-accent-300/15 border border-accent-300/30 text-accent-100 backdrop-blur">&minus;95% survey cost</span>
+                                <span class="font-mono text-[11px] t-muted">P/01</span>
+                                <span class="text-[11px] px-2.5 py-1 rounded-full border c-accent t-accent backdrop-blur">&minus;95% survey cost</span>
                             </div>
                             <div>
-                                <h3 class="text-[28px] leading-tight font-semibold text-white tracking-tight">PANTARAU</h3>
-                                <p class="mt-1 text-sm text-slate-300/90">Unmanned surface vessel</p>
-                                <p class="mt-4 label !text-[10px] text-slate-400 leading-5">Robotics<br>IoT telemetry</p>
+                                <h3 class="text-[28px] leading-tight font-semibold t-strong tracking-tight">PANTARAU</h3>
+                                <p class="mt-1 text-sm t-body">Unmanned surface vessel</p>
+                                <p class="mt-4 label !text-[10px] t-muted leading-5">Robotics<br>IoT telemetry</p>
                             </div>
                         </div>
                         <button type="button" data-project="pantarau" class="absolute inset-0 z-[5] w-full h-full" aria-label="Open PANTARAU case study">
-                            <span class="absolute right-5 bottom-5 grid place-items-center w-12 h-12 rounded-full border border-white/30 text-white bg-ink-950/30 backdrop-blur transition-all duration-300 group-hover:bg-accent-300 group-hover:text-ink-950 group-hover:border-accent-300 group-hover:rotate-45">
-                                <i class="fa-solid fa-arrow-right -rotate-45" aria-hidden="true"></i>
-                            </span>
+                            <span class="absolute right-5 bottom-5 grid place-items-center w-12 h-12 rounded-full border border-white/30 text-white bg-ink-950/30 backdrop-blur transition-all duration-300 group-hover:bg-accent-300 group-hover:text-ink-950 group-hover:border-accent-300 group-hover:rotate-45"><i class="fa-solid fa-arrow-right -rotate-45" aria-hidden="true"></i></span>
                         </button>
                     </article>
 
-                    <article class="group spot lift relative rounded-2xl overflow-hidden border border-white/10 bg-ink-850 aspect-[4/5] reveal" style="transition-delay:80ms">
-                        <img src="./images/aims.webp" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover opacity-80 transition duration-700 group-hover:scale-105 group-hover:opacity-90">
-                        <div class="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/55 to-ink-950/10"></div>
+                    <article class="group spot lift relative rounded-2xl overflow-hidden border b-line bg-ink-850 aspect-[4/5] reveal" style="transition-delay:80ms">
+                        <img src="./images/aims.webp" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover opacity-85 transition duration-700 group-hover:scale-105 group-hover:opacity-95">
+                        <div class="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/50 to-ink-950/5"></div>
                         <div class="relative h-full flex flex-col justify-between p-6">
                             <div class="flex items-center justify-between">
-                                <span class="font-mono text-[11px] text-slate-400">P/02</span>
-                                <span class="text-[11px] px-2.5 py-1 rounded-full bg-accent-300/15 border border-accent-300/30 text-accent-100 backdrop-blur">100% drip detection</span>
+                                <span class="font-mono text-[11px] t-muted">P/02</span>
+                                <span class="text-[11px] px-2.5 py-1 rounded-full border c-accent t-accent backdrop-blur">100% drip detection</span>
                             </div>
                             <div>
-                                <h3 class="text-[28px] leading-tight font-semibold text-white tracking-tight">AIMS</h3>
-                                <p class="mt-1 text-sm text-slate-300/90">Smart infusion &amp; vital signs</p>
-                                <p class="mt-4 label !text-[10px] text-slate-400 leading-5">Healthcare IoT<br>Conference paper 2026</p>
+                                <h3 class="text-[28px] leading-tight font-semibold t-strong tracking-tight">AIMS</h3>
+                                <p class="mt-1 text-sm t-body">Smart infusion &amp; vital signs</p>
+                                <p class="mt-4 label !text-[10px] t-muted leading-5">Healthcare IoT<br>Conference paper 2026</p>
                             </div>
                         </div>
                         <button type="button" data-project="aims" class="absolute inset-0 z-[5] w-full h-full" aria-label="Open AIMS case study">
-                            <span class="absolute right-5 bottom-5 grid place-items-center w-12 h-12 rounded-full border border-white/30 text-white bg-ink-950/30 backdrop-blur transition-all duration-300 group-hover:bg-accent-300 group-hover:text-ink-950 group-hover:border-accent-300 group-hover:rotate-45">
-                                <i class="fa-solid fa-arrow-right -rotate-45" aria-hidden="true"></i>
-                            </span>
+                            <span class="absolute right-5 bottom-5 grid place-items-center w-12 h-12 rounded-full border border-white/30 text-white bg-ink-950/30 backdrop-blur transition-all duration-300 group-hover:bg-accent-300 group-hover:text-ink-950 group-hover:border-accent-300 group-hover:rotate-45"><i class="fa-solid fa-arrow-right -rotate-45" aria-hidden="true"></i></span>
                         </button>
                     </article>
 
-                    <article class="group spot lift relative rounded-2xl overflow-hidden border border-white/10 bg-ink-850 aspect-[4/5] reveal" style="transition-delay:160ms">
-                        <img src="./images/nusakultura.webp" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover opacity-80 transition duration-700 group-hover:scale-105 group-hover:opacity-90">
-                        <div class="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/55 to-ink-950/10"></div>
+                    <article class="group spot lift relative rounded-2xl overflow-hidden border b-line bg-ink-850 aspect-[4/5] reveal" style="transition-delay:160ms">
+                        <img src="./images/nusakultura.webp" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover opacity-85 transition duration-700 group-hover:scale-105 group-hover:opacity-95">
+                        <div class="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/50 to-ink-950/5"></div>
                         <div class="relative h-full flex flex-col justify-between p-6">
                             <div class="flex items-center justify-between">
-                                <span class="font-mono text-[11px] text-slate-400">P/03</span>
-                                <span class="text-[11px] px-2.5 py-1 rounded-full bg-accent-300/15 border border-accent-300/30 text-accent-100 backdrop-blur">p &lt; 0.001, n = 63</span>
+                                <span class="font-mono text-[11px] t-muted">P/03</span>
+                                <span class="text-[11px] px-2.5 py-1 rounded-full border c-accent t-accent backdrop-blur">p &lt; 0.001, n = 63</span>
                             </div>
                             <div>
-                                <h3 class="text-[28px] leading-tight font-semibold text-white tracking-tight">Nusa Kultura</h3>
-                                <p class="mt-1 text-sm text-slate-300/90">Cultural heritage board game</p>
-                                <p class="mt-4 label !text-[10px] text-slate-400 leading-5">Game design<br>Educational research</p>
+                                <h3 class="text-[28px] leading-tight font-semibold t-strong tracking-tight">Nusa Kultura</h3>
+                                <p class="mt-1 text-sm t-body">Cultural heritage board game</p>
+                                <p class="mt-4 label !text-[10px] t-muted leading-5">Game design<br>Educational research</p>
                             </div>
                         </div>
                         <button type="button" data-project="nusa" class="absolute inset-0 z-[5] w-full h-full" aria-label="Open Nusa Kultura case study">
-                            <span class="absolute right-5 bottom-5 grid place-items-center w-12 h-12 rounded-full border border-white/30 text-white bg-ink-950/30 backdrop-blur transition-all duration-300 group-hover:bg-accent-300 group-hover:text-ink-950 group-hover:border-accent-300 group-hover:rotate-45">
-                                <i class="fa-solid fa-arrow-right -rotate-45" aria-hidden="true"></i>
-                            </span>
+                            <span class="absolute right-5 bottom-5 grid place-items-center w-12 h-12 rounded-full border border-white/30 text-white bg-ink-950/30 backdrop-blur transition-all duration-300 group-hover:bg-accent-300 group-hover:text-ink-950 group-hover:border-accent-300 group-hover:rotate-45"><i class="fa-solid fa-arrow-right -rotate-45" aria-hidden="true"></i></span>
                         </button>
                     </article>
 
-                    <article class="group spot lift relative rounded-2xl overflow-hidden border border-white/10 bg-ink-850 aspect-[4/5] reveal" style="transition-delay:240ms">
-                        <img src="./images/aspur.webp" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover opacity-80 transition duration-700 group-hover:scale-105 group-hover:opacity-90">
-                        <div class="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/55 to-ink-950/10"></div>
+                    <article class="group spot lift relative rounded-2xl overflow-hidden border b-line bg-ink-850 aspect-[4/5] reveal" style="transition-delay:240ms">
+                        <img src="./images/aspur.webp" alt="" loading="lazy" decoding="async" class="absolute inset-0 w-full h-full object-cover opacity-85 transition duration-700 group-hover:scale-105 group-hover:opacity-95">
+                        <div class="absolute inset-0 bg-gradient-to-t from-ink-950 via-ink-950/50 to-ink-950/5"></div>
                         <div class="relative h-full flex flex-col justify-between p-6">
                             <div class="flex items-center justify-between">
-                                <span class="font-mono text-[11px] text-slate-400">P/04</span>
-                                <span class="text-[11px] px-2.5 py-1 rounded-full bg-accent-300/15 border border-accent-300/30 text-accent-100 backdrop-blur">Voice to recipe</span>
+                                <span class="font-mono text-[11px] t-muted">P/04</span>
+                                <span class="text-[11px] px-2.5 py-1 rounded-full border c-accent t-accent backdrop-blur">Voice to recipe</span>
                             </div>
                             <div>
-                                <h3 class="text-[28px] leading-tight font-semibold text-white tracking-tight">ASPUR</h3>
-                                <p class="mt-1 text-sm text-slate-300/90">AI kitchen assistant</p>
-                                <p class="mt-4 label !text-[10px] text-slate-400 leading-5">Embedded AI<br>Raspberry Pi 4</p>
+                                <h3 class="text-[28px] leading-tight font-semibold t-strong tracking-tight">ASPUR</h3>
+                                <p class="mt-1 text-sm t-body">AI kitchen assistant</p>
+                                <p class="mt-4 label !text-[10px] t-muted leading-5">Embedded AI<br>Raspberry Pi 4</p>
                             </div>
                         </div>
                         <button type="button" data-project="aspur" class="absolute inset-0 z-[5] w-full h-full" aria-label="Open ASPUR case study">
-                            <span class="absolute right-5 bottom-5 grid place-items-center w-12 h-12 rounded-full border border-white/30 text-white bg-ink-950/30 backdrop-blur transition-all duration-300 group-hover:bg-accent-300 group-hover:text-ink-950 group-hover:border-accent-300 group-hover:rotate-45">
-                                <i class="fa-solid fa-arrow-right -rotate-45" aria-hidden="true"></i>
-                            </span>
+                            <span class="absolute right-5 bottom-5 grid place-items-center w-12 h-12 rounded-full border border-white/30 text-white bg-ink-950/30 backdrop-blur transition-all duration-300 group-hover:bg-accent-300 group-hover:text-ink-950 group-hover:border-accent-300 group-hover:rotate-45"><i class="fa-solid fa-arrow-right -rotate-45" aria-hidden="true"></i></span>
                         </button>
                     </article>
                 </div>
@@ -429,152 +472,155 @@
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
                 <div class="grid lg:grid-cols-[1.55fr_1fr] gap-10 lg:gap-12">
                     <div class="reveal">
-                        <div class="flex flex-wrap items-end justify-between gap-4 mb-6 pb-4 border-b border-white/[0.08]">
-                            <h2 class="label text-slate-300">Experience</h2>
-                            <div class="flex gap-1 p-1 rounded-full border border-white/10 bg-white/[0.02]" role="tablist" aria-label="Experience categories">
+                        <div class="flex flex-wrap items-end justify-between gap-4 mb-6 pb-4 border-b b-line">
+                            <h2 class="label t-body">Experience</h2>
+                            <div class="flex gap-1 p-1 rounded-full border b-line s-soft" role="tablist" aria-label="Experience categories">
                                 <button type="button" role="tab" id="tab-work" aria-controls="panel-work" aria-selected="true" class="exp-tab press px-4 py-1.5 rounded-full text-xs tracking-wide">Work &amp; research</button>
                                 <button type="button" role="tab" id="tab-lead" aria-controls="panel-lead" aria-selected="false" tabindex="-1" class="exp-tab press px-4 py-1.5 rounded-full text-xs tracking-wide">Leadership</button>
                                 <button type="button" role="tab" id="tab-vol" aria-controls="panel-vol" aria-selected="false" tabindex="-1" class="exp-tab press px-4 py-1.5 rounded-full text-xs tracking-wide">Volunteer</button>
                             </div>
                         </div>
 
-                        <!-- Work & research -->
-                        <ol id="panel-work" role="tabpanel" aria-labelledby="tab-work" class="exp-panel divide-y divide-white/[0.06]">
+                        <ol id="panel-work" role="tabpanel" aria-labelledby="tab-work" class="exp-panel divide-y d-line">
                             <li class="py-5 grid sm:grid-cols-[9.5rem_1fr] gap-x-6 gap-y-1">
-                                <p class="font-mono text-xs text-slate-500 pt-1">Oct 2026 &ndash; now</p>
+                                <p class="font-mono text-xs t-faint pt-1">From Feb 2027</p>
                                 <div>
-                                    <h3 class="text-white font-semibold text-lg">blu Ambassador</h3>
-                                    <p class="text-sm text-accent-200">PT Bank Central Asia Tbk (BCA)</p>
-                                    <p class="mt-2 text-sm text-slate-400 leading-relaxed">Campus ambassador for blu, the BCA Group's digital banking app.</p>
+                                    <div class="flex flex-wrap items-center gap-2">
+                                        <h3 class="t-strong font-semibold text-lg">Automation Engineer</h3>
+                                        <span class="label !text-[9px] !tracking-[0.18em] px-2 py-0.5 rounded-full border c-accent t-accent">Incoming</span>
+                                    </div>
+                                    <p class="text-sm t-accent">PT Charoen Pokphand Indonesia</p>
+                                    <p class="mt-2 text-sm t-muted leading-relaxed">Offer accepted. Joining the automation engineering team in February 2027.</p>
                                 </div>
                             </li>
                             <li class="py-5 grid sm:grid-cols-[9.5rem_1fr] gap-x-6 gap-y-1">
-                                <p class="font-mono text-xs text-slate-500 pt-1">Dec 2025 &ndash; now</p>
+                                <p class="font-mono text-xs t-faint pt-1">Oct 2026 &ndash; now</p>
                                 <div>
-                                    <h3 class="text-white font-semibold text-lg">Research Ambassador</h3>
-                                    <p class="text-sm text-accent-200">BINUS University</p>
-                                    <p class="mt-2 text-sm text-slate-400 leading-relaxed">Run campus campaigns that bring undergraduates into faculty-led research, and work with faculty on cross-disciplinary studies.</p>
+                                    <h3 class="t-strong font-semibold text-lg">blu Ambassador</h3>
+                                    <p class="text-sm t-accent">PT Bank Central Asia Tbk (BCA)</p>
+                                    <p class="mt-2 text-sm t-muted leading-relaxed">Campus ambassador for blu, the BCA Group's digital banking app.</p>
                                 </div>
                             </li>
                             <li class="py-5 grid sm:grid-cols-[9.5rem_1fr] gap-x-6 gap-y-1">
-                                <p class="font-mono text-xs text-slate-500 pt-1">Sep 2025 &ndash; now</p>
+                                <p class="font-mono text-xs t-faint pt-1">Dec 2025 &ndash; now</p>
                                 <div>
-                                    <h3 class="text-white font-semibold text-lg">Part-Time Research Assistant</h3>
-                                    <p class="text-sm text-accent-200">BINUS Maker Innovation Space</p>
-                                    <p class="mt-2 text-sm text-slate-400 leading-relaxed">C++ and Python firmware for ESP32 and Raspberry Pi data-acquisition rigs across 3+ research projects. Sped up sensor data collection for 2 papers.</p>
+                                    <h3 class="t-strong font-semibold text-lg">Research Ambassador</h3>
+                                    <p class="text-sm t-accent">BINUS University</p>
+                                    <p class="mt-2 text-sm t-muted leading-relaxed">Run campus campaigns that bring undergraduates into faculty-led research, and work with faculty on cross-disciplinary studies.</p>
                                 </div>
                             </li>
                             <li class="py-5 grid sm:grid-cols-[9.5rem_1fr] gap-x-6 gap-y-1">
-                                <p class="font-mono text-xs text-slate-500 pt-1">Feb 2025 &ndash; now</p>
+                                <p class="font-mono text-xs t-faint pt-1">Sep 2025 &ndash; now</p>
                                 <div>
-                                    <h3 class="text-white font-semibold text-lg">Assembly Technician</h3>
-                                    <p class="text-sm text-accent-200">IEEE BINUS</p>
-                                    <p class="mt-2 text-sm text-slate-400 leading-relaxed">Hand-soldered and debugged 15+ custom multi-layer PCBs for competition builds with zero board failures. Every assigned build reached competition day fully operational.</p>
+                                    <h3 class="t-strong font-semibold text-lg">Part-Time Research Assistant</h3>
+                                    <p class="text-sm t-accent">BINUS Maker Innovation Space</p>
+                                    <p class="mt-2 text-sm t-muted leading-relaxed">C++ and Python firmware for ESP32 and Raspberry Pi data-acquisition rigs across 3+ research projects. Sped up sensor data collection for 2 papers.</p>
                                 </div>
                             </li>
                             <li class="py-5 grid sm:grid-cols-[9.5rem_1fr] gap-x-6 gap-y-1">
-                                <p class="font-mono text-xs text-slate-500 pt-1">Jul &ndash; Sep 2025</p>
+                                <p class="font-mono text-xs t-faint pt-1">Jul &ndash; Sep 2025</p>
                                 <div>
-                                    <h3 class="text-white font-semibold text-lg">Part-Time Website Developer</h3>
-                                    <p class="text-sm text-accent-200">MTE Solution</p>
-                                    <p class="mt-2 text-sm text-slate-400 leading-relaxed">Triaged and fixed 50+ bugs on a production company website, including cross-browser rendering issues.</p>
-                                </div>
-                            </li>
-                        </ol>
-
-                        <!-- Leadership -->
-                        <ol id="panel-lead" role="tabpanel" aria-labelledby="tab-lead" class="exp-panel divide-y divide-white/[0.06]" hidden>
-                            <li class="py-5 grid sm:grid-cols-[9.5rem_1fr] gap-x-6 gap-y-1">
-                                <p class="font-mono text-xs text-slate-500 pt-1">Jan 2026 &ndash; now</p>
-                                <div>
-                                    <h3 class="text-white font-semibold text-lg">Founder &amp; President</h3>
-                                    <p class="text-sm text-accent-200">BINUS Robotics &amp; AI Network</p>
-                                    <p class="mt-2 text-sm text-slate-400 leading-relaxed">Founded a student organization for robotics and applied AI. Set its research roadmap and run the pipeline that sends teams to regional and national competitions.</p>
+                                    <h3 class="t-strong font-semibold text-lg">Part-Time Website Developer</h3>
+                                    <p class="text-sm t-accent">MTE Solution</p>
+                                    <p class="mt-2 text-sm t-muted leading-relaxed">Triaged and fixed 50+ bugs on a production company website, including cross-browser rendering issues.</p>
                                 </div>
                             </li>
                             <li class="py-5 grid sm:grid-cols-[9.5rem_1fr] gap-x-6 gap-y-1">
-                                <p class="font-mono text-xs text-slate-500 pt-1">Feb 2025 &ndash; now</p>
+                                <p class="font-mono text-xs t-faint pt-1">Feb 2025 &ndash; now</p>
                                 <div>
-                                    <h3 class="text-white font-semibold text-lg">Hardware Team Member</h3>
-                                    <p class="text-sm text-accent-200">IEEE BINUS</p>
-                                    <p class="mt-2 text-sm text-slate-400 leading-relaxed">Part of the hardware team behind the branch's competition entries, responsible for PCB assembly and bring-up.</p>
+                                    <h3 class="t-strong font-semibold text-lg">Assembly Technician</h3>
+                                    <p class="text-sm t-accent">IEEE BINUS</p>
+                                    <p class="mt-2 text-sm t-muted leading-relaxed">Hand-soldered and debugged 15+ custom multi-layer PCBs for competition builds with zero board failures. Every assigned build reached competition day fully operational.</p>
                                 </div>
                             </li>
                             <li class="py-5 grid sm:grid-cols-[9.5rem_1fr] gap-x-6 gap-y-1">
-                                <p class="font-mono text-xs text-slate-500 pt-1">Apr 2023 &ndash; now</p>
+                                <p class="font-mono text-xs t-faint pt-1">2024 &ndash; now</p>
                                 <div>
-                                    <h3 class="text-white font-semibold text-lg">Founder &amp; Project Manager</h3>
-                                    <p class="text-sm text-accent-200">Trashly Indonesia</p>
-                                    <p class="mt-2 text-sm text-slate-400 leading-relaxed">Started a youth-led NGO that designs automated waste-management systems and runs environmental education programs in schools.</p>
+                                    <h3 class="t-strong font-semibold text-lg">Freelance Drum Instructor</h3>
+                                    <p class="text-sm t-accent">Self-employed</p>
+                                    <p class="mt-2 text-sm t-muted leading-relaxed">Teach private drum lessons alongside university studies.</p>
                                 </div>
                             </li>
                         </ol>
 
-                        <!-- Volunteer -->
-                        <ol id="panel-vol" role="tabpanel" aria-labelledby="tab-vol" class="exp-panel divide-y divide-white/[0.06]" hidden>
+                        <ol id="panel-lead" role="tabpanel" aria-labelledby="tab-lead" class="exp-panel divide-y d-line" hidden>
                             <li class="py-5 grid sm:grid-cols-[9.5rem_1fr] gap-x-6 gap-y-1">
-                                <p class="font-mono text-xs text-slate-500 pt-1">2026</p>
+                                <p class="font-mono text-xs t-faint pt-1">Jan 2026 &ndash; now</p>
                                 <div>
-                                    <h3 class="text-white font-semibold text-lg">GEMASTIK XIX</h3>
-                                    <p class="text-sm text-accent-200">National student ICT competition</p>
-                                    <ul class="mt-2 space-y-1 text-sm text-slate-400">
-                                        <li class="flex gap-2"><span class="text-accent-300">&rsaquo;</span> Coordinator, Division 1: Competitive Programming</li>
-                                        <li class="flex gap-2"><span class="text-accent-300">&rsaquo;</span> Liaison Officer, Division 3: Data Mining</li>
+                                    <h3 class="t-strong font-semibold text-lg">Founder &amp; President</h3>
+                                    <p class="text-sm t-accent">BINUS Robotics &amp; AI Network</p>
+                                    <p class="mt-2 text-sm t-muted leading-relaxed">Founded a student organization for robotics and applied AI. Set its research roadmap and run the pipeline that sends teams to regional and national competitions.</p>
+                                </div>
+                            </li>
+                            <li class="py-5 grid sm:grid-cols-[9.5rem_1fr] gap-x-6 gap-y-1">
+                                <p class="font-mono text-xs t-faint pt-1">Apr 2023 &ndash; now</p>
+                                <div>
+                                    <h3 class="t-strong font-semibold text-lg">Founder &amp; Project Manager</h3>
+                                    <p class="text-sm t-accent">Trashly Indonesia</p>
+                                    <p class="mt-2 text-sm t-muted leading-relaxed">Started a youth-led NGO that designs automated waste-management systems and runs environmental education programs in schools.</p>
+                                </div>
+                            </li>
+                        </ol>
+
+                        <ol id="panel-vol" role="tabpanel" aria-labelledby="tab-vol" class="exp-panel divide-y d-line" hidden>
+                            <li class="py-5 grid sm:grid-cols-[9.5rem_1fr] gap-x-6 gap-y-1">
+                                <p class="font-mono text-xs t-faint pt-1">2026</p>
+                                <div>
+                                    <h3 class="t-strong font-semibold text-lg">GEMASTIK XIX</h3>
+                                    <p class="text-sm t-accent">National student ICT competition</p>
+                                    <ul class="mt-2 space-y-1 text-sm t-muted">
+                                        <li class="flex gap-2"><span class="t-accent">&rsaquo;</span> Coordinator, Division 1: Competitive Programming</li>
+                                        <li class="flex gap-2"><span class="t-accent">&rsaquo;</span> Liaison Officer, Division 3: Data Mining</li>
                                     </ul>
                                 </div>
                             </li>
                             <li class="py-5 grid sm:grid-cols-[9.5rem_1fr] gap-x-6 gap-y-1">
-                                <p class="font-mono text-xs text-slate-500 pt-1">2026</p>
+                                <p class="font-mono text-xs t-faint pt-1">2026</p>
                                 <div>
-                                    <h3 class="text-white font-semibold text-lg">BINUS HealthCare Festival</h3>
-                                    <p class="text-sm text-accent-200">Liaison Officer</p>
-                                    <p class="mt-2 text-sm text-slate-400 leading-relaxed">Liaison officer for a visiting professor from KU Leuven, Belgium.</p>
+                                    <h3 class="t-strong font-semibold text-lg">BINUS HealthCare Festival</h3>
+                                    <p class="text-sm t-accent">Liaison Officer</p>
+                                    <p class="mt-2 text-sm t-muted leading-relaxed">Liaison officer for a visiting professor from KU Leuven, Belgium.</p>
                                 </div>
                             </li>
                             <li class="py-5 grid sm:grid-cols-[9.5rem_1fr] gap-x-6 gap-y-1">
-                                <p class="font-mono text-xs text-slate-500 pt-1">2026</p>
+                                <p class="font-mono text-xs t-faint pt-1">2026</p>
                                 <div>
-                                    <h3 class="text-white font-semibold text-lg">High School Festival</h3>
-                                    <p class="text-sm text-accent-200">Body Checker</p>
-                                    <p class="mt-2 text-sm text-slate-400 leading-relaxed">Event security and participant checks.</p>
+                                    <h3 class="t-strong font-semibold text-lg">High School Festival</h3>
+                                    <p class="text-sm t-accent">Body Checker</p>
+                                    <p class="mt-2 text-sm t-muted leading-relaxed">Event security and participant checks.</p>
                                 </div>
                             </li>
                         </ol>
                     </div>
 
-                    <!-- Conference papers -->
                     <aside class="reveal" style="transition-delay:120ms">
-                        <div class="mb-6 pb-4 border-b border-white/[0.08]">
-                            <h2 class="label text-slate-300">Conference papers</h2>
-                        </div>
+                        <div class="mb-6 pb-4 border-b b-line"><h2 class="label t-body">Conference papers</h2></div>
                         <ul class="space-y-3">
                             <li class="panel spot spot-fill lift rounded-xl p-5">
-                                <p class="flex items-center gap-2 label !text-[10px] text-accent-300"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> We Are Student Conference 2026</p>
-                                <p class="mt-3 text-[15px] leading-snug text-white">Smart Infusion and Vital-Sign Monitoring System with Text-to-Speech Notification for Efficient Patient Care</p>
-                                <button type="button" data-project="aims" class="press relative z-[5] mt-4 inline-flex items-center gap-2 text-xs text-slate-400 hover:text-accent-200 transition-colors">Related build: AIMS <i class="fa-solid fa-arrow-right text-[10px]" aria-hidden="true"></i></button>
+                                <p class="flex items-center gap-2 label !text-[10px] t-accent"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> We Are Student Conference 2026</p>
+                                <p class="mt-3 text-[15px] leading-snug t-strong">Smart Infusion and Vital-Sign Monitoring System with Text-to-Speech Notification for Efficient Patient Care</p>
+                                <button type="button" data-project="aims" class="press relative z-[5] mt-4 inline-flex items-center gap-2 text-xs t-muted h-accent transition-colors">Related build: AIMS <i class="fa-solid fa-arrow-right text-[10px]" aria-hidden="true"></i></button>
                             </li>
                             <li class="panel spot spot-fill lift rounded-xl p-5">
-                                <p class="flex items-center gap-2 label !text-[10px] text-accent-300"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> We Are Student Conference 2026</p>
-                                <p class="mt-3 text-[15px] leading-snug text-white">Doughlytics: An Edge-Cloud Integrated IoT Scale and Thermal Sensing System for Quality Control in Artisanal Baking</p>
-                                <p class="mt-4 text-xs text-slate-500">Load cell + thermal sensing, edge-cloud pipeline</p>
+                                <p class="flex items-center gap-2 label !text-[10px] t-accent"><i class="fa-solid fa-file-lines" aria-hidden="true"></i> We Are Student Conference 2026</p>
+                                <p class="mt-3 text-[15px] leading-snug t-strong">Doughlytics: An Edge-Cloud Integrated IoT Scale and Thermal Sensing System for Quality Control in Artisanal Baking</p>
+                                <p class="mt-4 text-xs t-faint">Load cell + thermal sensing, edge-cloud pipeline</p>
                             </li>
                         </ul>
 
-                        <div class="mt-8 mb-4 pb-4 border-b border-white/[0.08]">
-                            <h2 class="label text-slate-300">Education &amp; scholarships</h2>
-                        </div>
-                        <ul class="panel rounded-xl divide-y divide-white/[0.06]">
+                        <div class="mt-8 mb-4 pb-4 border-b b-line"><h2 class="label t-body">Education &amp; scholarships</h2></div>
+                        <ul class="panel rounded-xl divide-y d-line">
                             <li class="flex items-center gap-4 p-4">
-                                <span class="grid place-items-center w-10 h-10 rounded-lg bg-white/5 border border-white/10 text-accent-200"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></span>
-                                <div><p class="text-sm text-white">B.Eng. Computer Engineering</p><p class="text-xs text-slate-500">BINUS University &middot; Jakarta</p></div>
+                                <span class="grid place-items-center w-10 h-10 rounded-lg border b-line s-soft t-accent"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></span>
+                                <div><p class="text-sm t-strong">B.Eng. Computer Engineering</p><p class="text-xs t-faint">BINUS University &middot; Jakarta</p></div>
                             </li>
                             <li class="flex items-center gap-4 p-4">
-                                <span class="grid place-items-center w-10 h-10 rounded-lg bg-white/5 border border-white/10 text-amber-200"><i class="fa-solid fa-award" aria-hidden="true"></i></span>
-                                <div><p class="text-sm text-white">Widia Scholarship</p><p class="text-xs text-slate-500">Scholarship recipient</p></div>
+                                <span class="grid place-items-center w-10 h-10 rounded-lg border c-gold t-gold"><i class="fa-solid fa-award" aria-hidden="true"></i></span>
+                                <div><p class="text-sm t-strong">Widia Scholarship</p><p class="text-xs t-faint">Scholarship recipient</p></div>
                             </li>
                             <li class="flex items-center gap-4 p-4">
-                                <span class="grid place-items-center w-10 h-10 rounded-lg bg-white/5 border border-white/10 text-amber-200"><i class="fa-solid fa-award" aria-hidden="true"></i></span>
-                                <div><p class="text-sm text-white">Beasiswa Indonesia Maju (BIM)</p><p class="text-xs text-slate-500">Scholarship recipient</p></div>
+                                <span class="grid place-items-center w-10 h-10 rounded-lg border c-gold t-gold"><i class="fa-solid fa-award" aria-hidden="true"></i></span>
+                                <div><p class="text-sm t-strong">Beasiswa Indonesia Maju (BIM)</p><p class="text-xs t-faint">Scholarship recipient</p></div>
                             </li>
                         </ul>
                     </aside>
@@ -587,8 +633,9 @@
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
                 <div class="grid lg:grid-cols-[1fr_auto] gap-6 items-end mb-8 reveal">
                     <div>
-                        <h2 class="label text-slate-300">Honors &amp; awards</h2>
-                        <p class="mt-4 font-display uppercase text-4xl sm:text-5xl leading-none metal"><span data-countup="first">10</span> first places. <span class="outline-text"><span data-countup="2026-first">9</span> in 2026.</span></p>
+                        <h2 class="label t-body">Honors &amp; awards</h2>
+                        <p class="mt-4 font-display uppercase text-4xl sm:text-5xl leading-none metal">40+ awards. <span class="outline-text"><span data-countup="first">10</span> first places.</span></p>
+                        <p class="mt-3 text-sm t-faint">Selected competition results, newest first.</p>
                     </div>
                     <div class="flex flex-wrap gap-2" role="group" aria-label="Filter awards">
                         <button type="button" data-filter="all" class="award-filter press px-3.5 py-1.5 rounded-full text-xs border">All <span class="opacity-60 font-mono" data-count="all"></span></button>
@@ -599,7 +646,7 @@
                     </div>
                 </div>
                 <div id="award-groups" class="space-y-10" aria-live="polite"></div>
-                <noscript><p class="text-slate-400">Enable JavaScript to see the full list of awards.</p></noscript>
+                <noscript><p class="t-muted">Enable JavaScript to see the list of awards.</p></noscript>
             </div>
         </section>
 
@@ -608,118 +655,73 @@
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
                 <div class="grid lg:grid-cols-[1.25fr_1px_1fr] gap-10 lg:gap-12">
                     <div class="reveal">
-                        <h2 class="label text-slate-300 pb-4 border-b border-white/[0.08]">Core capabilities</h2>
+                        <h2 class="label t-body pb-4 border-b b-line">Core capabilities</h2>
                         <ul class="mt-8 grid sm:grid-cols-2 gap-x-10 gap-y-9">
-                            <li class="flex gap-5">
-                                <i class="fa-solid fa-microchip text-2xl text-accent-200/90 w-7 mt-0.5" aria-hidden="true"></i>
-                                <div><h3 class="label !tracking-[0.16em] text-white">Embedded systems</h3><p class="mt-2 text-sm text-slate-400 leading-relaxed">ESP32, ESP32-C3 and Raspberry Pi firmware in C++ and Python.</p></div>
-                            </li>
-                            <li class="flex gap-5">
-                                <i class="fa-solid fa-tower-broadcast text-2xl text-accent-200/90 w-7 mt-0.5" aria-hidden="true"></i>
-                                <div><h3 class="label !tracking-[0.16em] text-white">IoT &amp; telemetry</h3><p class="mt-2 text-sm text-slate-400 leading-relaxed">Multi-sensor fusion, GSM and Wi-Fi uplink, real-time Firebase sync.</p></div>
-                            </li>
-                            <li class="flex gap-5">
-                                <i class="fa-solid fa-diagram-project text-2xl text-accent-200/90 w-7 mt-0.5" aria-hidden="true"></i>
-                                <div><h3 class="label !tracking-[0.16em] text-white">PCB design</h3><p class="mt-2 text-sm text-slate-400 leading-relaxed">Schematic, layout, SMD reflow and hand assembly of multi-layer boards.</p></div>
-                            </li>
-                            <li class="flex gap-5">
-                                <i class="fa-solid fa-brain text-2xl text-accent-200/90 w-7 mt-0.5" aria-hidden="true"></i>
-                                <div><h3 class="label !tracking-[0.16em] text-white">AI integration</h3><p class="mt-2 text-sm text-slate-400 leading-relaxed">LLM APIs and speech pipelines running on low-power hardware.</p></div>
-                            </li>
-                            <li class="flex gap-5">
-                                <i class="fa-solid fa-robot text-2xl text-accent-200/90 w-7 mt-0.5" aria-hidden="true"></i>
-                                <div><h3 class="label !tracking-[0.16em] text-white">Robotics</h3><p class="mt-2 text-sm text-slate-400 leading-relaxed">Surface-vessel navigation with GPS, digital compass and sonar.</p></div>
-                            </li>
-                            <li class="flex gap-5">
-                                <i class="fa-solid fa-chart-column text-2xl text-accent-200/90 w-7 mt-0.5" aria-hidden="true"></i>
-                                <div><h3 class="label !tracking-[0.16em] text-white">Research &amp; data</h3><p class="mt-2 text-sm text-slate-400 leading-relaxed">Experimental design, statistical testing in SPSS, technical writing.</p></div>
-                            </li>
+                            <li class="flex gap-5"><i class="fa-solid fa-microchip text-2xl t-accent w-7 mt-0.5" aria-hidden="true"></i><div><h3 class="label !tracking-[0.16em] t-strong">Embedded systems</h3><p class="mt-2 text-sm t-muted leading-relaxed">ESP32, ESP32-C3 and Raspberry Pi firmware in C++ and Python.</p></div></li>
+                            <li class="flex gap-5"><i class="fa-solid fa-tower-broadcast text-2xl t-accent w-7 mt-0.5" aria-hidden="true"></i><div><h3 class="label !tracking-[0.16em] t-strong">IoT &amp; telemetry</h3><p class="mt-2 text-sm t-muted leading-relaxed">Multi-sensor fusion, GSM and Wi-Fi uplink, real-time Firebase sync.</p></div></li>
+                            <li class="flex gap-5"><i class="fa-solid fa-diagram-project text-2xl t-accent w-7 mt-0.5" aria-hidden="true"></i><div><h3 class="label !tracking-[0.16em] t-strong">PCB design</h3><p class="mt-2 text-sm t-muted leading-relaxed">Schematic, layout, SMD reflow and hand assembly of multi-layer boards.</p></div></li>
+                            <li class="flex gap-5"><i class="fa-solid fa-brain text-2xl t-accent w-7 mt-0.5" aria-hidden="true"></i><div><h3 class="label !tracking-[0.16em] t-strong">AI integration</h3><p class="mt-2 text-sm t-muted leading-relaxed">LLM APIs and speech pipelines running on low-power hardware.</p></div></li>
+                            <li class="flex gap-5"><i class="fa-solid fa-robot text-2xl t-accent w-7 mt-0.5" aria-hidden="true"></i><div><h3 class="label !tracking-[0.16em] t-strong">Robotics</h3><p class="mt-2 text-sm t-muted leading-relaxed">Surface-vessel navigation with GPS, digital compass and sonar.</p></div></li>
+                            <li class="flex gap-5"><i class="fa-solid fa-chart-column text-2xl t-accent w-7 mt-0.5" aria-hidden="true"></i><div><h3 class="label !tracking-[0.16em] t-strong">Research &amp; data</h3><p class="mt-2 text-sm t-muted leading-relaxed">Experimental design, statistical testing in SPSS, technical writing.</p></div></li>
                         </ul>
                     </div>
 
-                    <div class="hidden lg:block bg-white/[0.08]"></div>
+                    <div class="hidden lg:block s-line"></div>
 
                     <div class="reveal" style="transition-delay:120ms">
-                        <h2 class="label text-slate-300 pb-4 border-b border-white/[0.08]">Tools &amp; technologies</h2>
+                        <h2 class="label t-body pb-4 border-b b-line">Tools &amp; technologies</h2>
                         <ul class="mt-8 panel rounded-xl p-3 grid grid-cols-2 sm:grid-cols-3 gap-1">
-                            <li class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/[0.04] transition-colors"><span class="grid place-items-center w-9 h-9 rounded-md bg-white/5 border border-white/10 text-[11px] font-mono text-accent-100">C++</span><span class="text-sm text-slate-300">C++</span></li>
-                            <li class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/[0.04] transition-colors"><span class="grid place-items-center w-9 h-9 rounded-md bg-white/5 border border-white/10 text-accent-100"><i class="fa-brands fa-python" aria-hidden="true"></i></span><span class="text-sm text-slate-300">Python</span></li>
-                            <li class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/[0.04] transition-colors"><span class="grid place-items-center w-9 h-9 rounded-md bg-white/5 border border-white/10 text-accent-100"><i class="fa-solid fa-microchip" aria-hidden="true"></i></span><span class="text-sm text-slate-300">ESP32</span></li>
-                            <li class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/[0.04] transition-colors"><span class="grid place-items-center w-9 h-9 rounded-md bg-white/5 border border-white/10 text-accent-100"><i class="fa-brands fa-raspberry-pi" aria-hidden="true"></i></span><span class="text-sm text-slate-300">Raspberry Pi</span></li>
-                            <li class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/[0.04] transition-colors"><span class="grid place-items-center w-9 h-9 rounded-md bg-white/5 border border-white/10 text-accent-100"><i class="fa-solid fa-fire" aria-hidden="true"></i></span><span class="text-sm text-slate-300">Firebase</span></li>
-                            <li class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/[0.04] transition-colors"><span class="grid place-items-center w-9 h-9 rounded-md bg-white/5 border border-white/10 text-accent-100"><i class="fa-solid fa-database" aria-hidden="true"></i></span><span class="text-sm text-slate-300">SQL</span></li>
-                            <li class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/[0.04] transition-colors"><span class="grid place-items-center w-9 h-9 rounded-md bg-white/5 border border-white/10 text-accent-100"><i class="fa-solid fa-chart-simple" aria-hidden="true"></i></span><span class="text-sm text-slate-300">SPSS</span></li>
-                            <li class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/[0.04] transition-colors"><span class="grid place-items-center w-9 h-9 rounded-md bg-white/5 border border-white/10 text-accent-100"><i class="fa-solid fa-memory" aria-hidden="true"></i></span><span class="text-sm text-slate-300">FPGA</span></li>
-                            <li class="flex items-center gap-3 p-3 rounded-lg hover:bg-white/[0.04] transition-colors"><span class="grid place-items-center w-9 h-9 rounded-md bg-white/5 border border-white/10 text-accent-100"><i class="fa-solid fa-cube" aria-hidden="true"></i></span><span class="text-sm text-slate-300">3D printing</span></li>
+                            <li class="flex items-center gap-3 p-3 rounded-lg h-soft transition-colors"><span class="grid place-items-center w-9 h-9 rounded-md border b-line s-soft text-[11px] font-mono t-accent">C++</span><span class="text-sm t-body">C++</span></li>
+                            <li class="flex items-center gap-3 p-3 rounded-lg h-soft transition-colors"><span class="grid place-items-center w-9 h-9 rounded-md border b-line s-soft t-accent"><i class="fa-brands fa-python" aria-hidden="true"></i></span><span class="text-sm t-body">Python</span></li>
+                            <li class="flex items-center gap-3 p-3 rounded-lg h-soft transition-colors"><span class="grid place-items-center w-9 h-9 rounded-md border b-line s-soft t-accent"><i class="fa-solid fa-microchip" aria-hidden="true"></i></span><span class="text-sm t-body">ESP32</span></li>
+                            <li class="flex items-center gap-3 p-3 rounded-lg h-soft transition-colors"><span class="grid place-items-center w-9 h-9 rounded-md border b-line s-soft t-accent"><i class="fa-brands fa-raspberry-pi" aria-hidden="true"></i></span><span class="text-sm t-body">Raspberry Pi</span></li>
+                            <li class="flex items-center gap-3 p-3 rounded-lg h-soft transition-colors"><span class="grid place-items-center w-9 h-9 rounded-md border b-line s-soft t-accent"><i class="fa-solid fa-fire" aria-hidden="true"></i></span><span class="text-sm t-body">Firebase</span></li>
+                            <li class="flex items-center gap-3 p-3 rounded-lg h-soft transition-colors"><span class="grid place-items-center w-9 h-9 rounded-md border b-line s-soft t-accent"><i class="fa-solid fa-database" aria-hidden="true"></i></span><span class="text-sm t-body">SQL</span></li>
+                            <li class="flex items-center gap-3 p-3 rounded-lg h-soft transition-colors"><span class="grid place-items-center w-9 h-9 rounded-md border b-line s-soft t-accent"><i class="fa-solid fa-chart-simple" aria-hidden="true"></i></span><span class="text-sm t-body">SPSS</span></li>
+                            <li class="flex items-center gap-3 p-3 rounded-lg h-soft transition-colors"><span class="grid place-items-center w-9 h-9 rounded-md border b-line s-soft t-accent"><i class="fa-solid fa-memory" aria-hidden="true"></i></span><span class="text-sm t-body">FPGA</span></li>
+                            <li class="flex items-center gap-3 p-3 rounded-lg h-soft transition-colors"><span class="grid place-items-center w-9 h-9 rounded-md border b-line s-soft t-accent"><i class="fa-solid fa-cube" aria-hidden="true"></i></span><span class="text-sm t-body">3D printing</span></li>
                         </ul>
-                        <p class="mt-5 label !text-[10px] text-slate-500">Sensors used in shipped builds</p>
-                        <ul class="mt-3 flex flex-wrap gap-1.5 font-mono text-[11px] text-slate-400">
-                            <li class="px-2 py-1 rounded border border-white/10">HX711</li>
-                            <li class="px-2 py-1 rounded border border-white/10">MAX30102</li>
-                            <li class="px-2 py-1 rounded border border-white/10">MCP9808</li>
-                            <li class="px-2 py-1 rounded border border-white/10">IP68 sonar</li>
-                            <li class="px-2 py-1 rounded border border-white/10">NEO-6M GPS</li>
-                            <li class="px-2 py-1 rounded border border-white/10">GY-511</li>
-                            <li class="px-2 py-1 rounded border border-white/10">SIM800L</li>
-                            <li class="px-2 py-1 rounded border border-white/10">LM393</li>
+                        <p class="mt-5 label !text-[10px] t-faint">Sensors used in shipped builds</p>
+                        <ul class="mt-3 flex flex-wrap gap-1.5 font-mono text-[11px] t-muted">
+                            <li class="px-2 py-1 rounded border b-line">HX711</li><li class="px-2 py-1 rounded border b-line">MAX30102</li><li class="px-2 py-1 rounded border b-line">MCP9808</li><li class="px-2 py-1 rounded border b-line">IP68 sonar</li>
+                            <li class="px-2 py-1 rounded border b-line">NEO-6M GPS</li><li class="px-2 py-1 rounded border b-line">GY-511</li><li class="px-2 py-1 rounded border b-line">SIM800L</li><li class="px-2 py-1 rounded border b-line">LM393</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Process -->
                 <div class="mt-20 reveal">
-                    <h2 class="label text-slate-300 mb-6">How I build</h2>
+                    <h2 class="label t-body mb-6">How I build</h2>
                     <ol class="panel rounded-2xl grid sm:grid-cols-2 lg:grid-cols-5">
-                        <li class="relative p-6 border-b sm:border-r lg:border-b-0 border-white/[0.07]">
-                            <p class="text-xs text-slate-500"><span class="font-mono">01</span> <span class="label !text-[11px] text-white ml-2">Define</span></p>
-                            <p class="mt-3 text-sm text-slate-400 leading-relaxed">Name the problem and the number that proves it is solved.</p>
-                            <i class="fa-solid fa-crosshairs mt-5 text-xl text-accent-200/80" aria-hidden="true"></i>
-                        </li>
-                        <li class="relative p-6 border-b lg:border-b-0 lg:border-r border-white/[0.07]">
-                            <p class="text-xs text-slate-500"><span class="font-mono">02</span> <span class="label !text-[11px] text-white ml-2">Prototype</span></p>
-                            <p class="mt-3 text-sm text-slate-400 leading-relaxed">Breadboard the sensor chain and write the first firmware.</p>
-                            <i class="fa-solid fa-flask mt-5 text-xl text-accent-200/80" aria-hidden="true"></i>
-                        </li>
-                        <li class="relative p-6 border-b sm:border-r lg:border-b-0 border-white/[0.07]">
-                            <p class="text-xs text-slate-500"><span class="font-mono">03</span> <span class="label !text-[11px] text-white ml-2">Board</span></p>
-                            <p class="mt-3 text-sm text-slate-400 leading-relaxed">Move to a custom PCB, assemble it, bring it up.</p>
-                            <i class="fa-solid fa-microchip mt-5 text-xl text-accent-200/80" aria-hidden="true"></i>
-                        </li>
-                        <li class="relative p-6 border-b sm:border-b-0 lg:border-r border-white/[0.07]">
-                            <p class="text-xs text-slate-500"><span class="font-mono">04</span> <span class="label !text-[11px] text-white ml-2">Field test</span></p>
-                            <p class="mt-3 text-sm text-slate-400 leading-relaxed">Calibrate in real conditions and log every run.</p>
-                            <i class="fa-solid fa-gauge-high mt-5 text-xl text-accent-200/80" aria-hidden="true"></i>
-                        </li>
-                        <li class="relative p-6 sm:col-span-2 lg:col-span-1">
-                            <p class="text-xs text-slate-500"><span class="font-mono">05</span> <span class="label !text-[11px] text-white ml-2">Report</span></p>
-                            <p class="mt-3 text-sm text-slate-400 leading-relaxed">Write it up as a paper, a competition entry, or docs others can reuse.</p>
-                            <i class="fa-solid fa-file-lines mt-5 text-xl text-accent-200/80" aria-hidden="true"></i>
-                        </li>
+                        <li class="p-6 border-b sm:border-r lg:border-b-0 b-line"><p class="text-xs t-faint"><span class="font-mono">01</span> <span class="label !text-[11px] t-strong ml-2">Define</span></p><p class="mt-3 text-sm t-muted leading-relaxed">Name the problem and the number that proves it is solved.</p><i class="fa-solid fa-crosshairs mt-5 text-xl t-accent" aria-hidden="true"></i></li>
+                        <li class="p-6 border-b lg:border-b-0 lg:border-r b-line"><p class="text-xs t-faint"><span class="font-mono">02</span> <span class="label !text-[11px] t-strong ml-2">Prototype</span></p><p class="mt-3 text-sm t-muted leading-relaxed">Breadboard the sensor chain and write the first firmware.</p><i class="fa-solid fa-flask mt-5 text-xl t-accent" aria-hidden="true"></i></li>
+                        <li class="p-6 border-b sm:border-r lg:border-b-0 b-line"><p class="text-xs t-faint"><span class="font-mono">03</span> <span class="label !text-[11px] t-strong ml-2">Board</span></p><p class="mt-3 text-sm t-muted leading-relaxed">Move to a custom PCB, assemble it, bring it up.</p><i class="fa-solid fa-microchip mt-5 text-xl t-accent" aria-hidden="true"></i></li>
+                        <li class="p-6 border-b sm:border-b-0 lg:border-r b-line"><p class="text-xs t-faint"><span class="font-mono">04</span> <span class="label !text-[11px] t-strong ml-2">Field test</span></p><p class="mt-3 text-sm t-muted leading-relaxed">Calibrate in real conditions and log every run.</p><i class="fa-solid fa-gauge-high mt-5 text-xl t-accent" aria-hidden="true"></i></li>
+                        <li class="p-6 sm:col-span-2 lg:col-span-1"><p class="text-xs t-faint"><span class="font-mono">05</span> <span class="label !text-[11px] t-strong ml-2">Report</span></p><p class="mt-3 text-sm t-muted leading-relaxed">Write it up as a paper, a competition entry, or docs others can reuse.</p><i class="fa-solid fa-file-lines mt-5 text-xl t-accent" aria-hidden="true"></i></li>
                     </ol>
                 </div>
             </div>
         </section>
 
-        <!-- ================= CTA / CONTACT ================= -->
+        <!-- ================= CTA / CONTACT (dark band in both themes) ================= -->
         <section id="contact" class="relative pt-24 lg:pt-28 pb-10">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
-                <div class="spot relative cta-sheen rounded-2xl border border-white/10 overflow-hidden reveal" style="--spot-size:420px">
+                <div class="theme-dark spot relative cta-sheen rounded-2xl border b-line overflow-hidden reveal" style="--spot-size:420px">
                     <div class="grid lg:grid-cols-[1.3fr_1fr_1fr] gap-10 p-7 sm:p-10 lg:p-12 items-center">
                         <div class="relative">
                             <p class="font-display uppercase leading-[0.95] text-[clamp(2.4rem,5vw,3.6rem)] metal">Have a problem<br>worth measuring?</p>
                             <svg class="twinkle absolute right-2 top-1 lg:right-10 w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0c.6 7 5 11.4 12 12-7 .6-11.4 5-12 12-.6-7-5-11.4-12-12 7-.6 11.4-5 12-12z"/></svg>
                         </div>
                         <div>
-                            <p class="text-slate-300 leading-relaxed">Open to research collaborations, internships and competition teams. I usually reply within two days.</p>
+                            <p class="t-body leading-relaxed">Open to research collaborations, internships and competition teams. I usually reply within two days.</p>
                             <a href="mailto:hanselmitchell03@gmail.com?subject=Hello%20Hansel" class="press mt-6 inline-flex items-center gap-3 px-6 py-3.5 btn-metal text-[11px] font-semibold tracking-[0.2em] uppercase">
                                 Email me <i class="fa-solid fa-arrow-right -rotate-45 text-[10px]" aria-hidden="true"></i>
                             </a>
                         </div>
-                        <ul class="space-y-4 text-sm lg:border-l lg:border-white/10 lg:pl-10">
-                            <li><a href="mailto:hanselmitchell03@gmail.com" class="flex items-center gap-4 text-slate-300 hover:text-white transition-colors"><i class="fa-regular fa-envelope w-4 text-accent-200" aria-hidden="true"></i><span class="truncate">hanselmitchell03@gmail.com</span></a></li>
-                            <li><a href="https://www.linkedin.com/in/hansel-mitchell-tumanggor" target="_blank" rel="noopener" class="flex items-center gap-4 text-slate-300 hover:text-white transition-colors"><i class="fa-brands fa-linkedin-in w-4 text-accent-200" aria-hidden="true"></i>in/hansel-mitchell-tumanggor</a></li>
-                            <li><a href="https://github.com/HanselMitchell" target="_blank" rel="noopener" class="flex items-center gap-4 text-slate-300 hover:text-white transition-colors"><i class="fa-brands fa-github w-4 text-accent-200" aria-hidden="true"></i>HanselMitchell</a></li>
-                            <li class="flex items-center gap-4 text-slate-300"><i class="fa-solid fa-location-dot w-4 text-accent-200" aria-hidden="true"></i>Jakarta, Indonesia</li>
+                        <ul class="space-y-4 text-sm lg:border-l b-line lg:pl-10">
+                            <li><a href="mailto:hanselmitchell03@gmail.com" class="flex items-center gap-4 t-body h-strong transition-colors"><i class="fa-regular fa-envelope w-4 t-accent" aria-hidden="true"></i><span class="truncate">hanselmitchell03@gmail.com</span></a></li>
+                            <li><a href="https://www.linkedin.com/in/hansel-mitchell-tumanggor" target="_blank" rel="noopener" class="flex items-center gap-4 t-body h-strong transition-colors"><i class="fa-brands fa-linkedin-in w-4 t-accent" aria-hidden="true"></i>in/hansel-mitchell-tumanggor</a></li>
+                            <li><a href="https://github.com/HanselMitchell" target="_blank" rel="noopener" class="flex items-center gap-4 t-body h-strong transition-colors"><i class="fa-brands fa-github w-4 t-accent" aria-hidden="true"></i>HanselMitchell</a></li>
+                            <li class="flex items-center gap-4 t-body"><i class="fa-solid fa-location-dot w-4 t-accent" aria-hidden="true"></i>Jakarta, Indonesia</li>
                         </ul>
                     </div>
                 </div>
@@ -727,54 +729,54 @@
         </section>
     </main>
 
-    <footer class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+    <footer class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10 py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs t-faint">
         <p>&copy; <span id="year">2026</span> Hansel Mitchell Tumanggor</p>
         <div class="flex items-center gap-4">
             <span class="label !text-[10px]">Let's connect</span>
-            <a href="https://www.linkedin.com/in/hansel-mitchell-tumanggor" target="_blank" rel="noopener" class="press grid place-items-center w-9 h-9 rounded-md border border-white/10 text-slate-300 hover:text-ink-950 hover:bg-accent-300 hover:border-accent-300" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
-            <a href="https://github.com/HanselMitchell" target="_blank" rel="noopener" class="press grid place-items-center w-9 h-9 rounded-md border border-white/10 text-slate-300 hover:text-ink-950 hover:bg-accent-300 hover:border-accent-300" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
-            <a href="mailto:hanselmitchell03@gmail.com" class="press grid place-items-center w-9 h-9 rounded-md border border-white/10 text-slate-300 hover:text-ink-950 hover:bg-accent-300 hover:border-accent-300" aria-label="Email"><i class="fa-regular fa-envelope" aria-hidden="true"></i></a>
+            <a href="https://www.linkedin.com/in/hansel-mitchell-tumanggor" target="_blank" rel="noopener" class="press grid place-items-center w-9 h-9 rounded-md border b-line t-body hover:!text-ink-950 hover:bg-accent-300 hover:!border-accent-300" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href="https://github.com/HanselMitchell" target="_blank" rel="noopener" class="press grid place-items-center w-9 h-9 rounded-md border b-line t-body hover:!text-ink-950 hover:bg-accent-300 hover:!border-accent-300" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+            <a href="mailto:hanselmitchell03@gmail.com" class="press grid place-items-center w-9 h-9 rounded-md border b-line t-body hover:!text-ink-950 hover:bg-accent-300 hover:!border-accent-300" aria-label="Email"><i class="fa-regular fa-envelope" aria-hidden="true"></i></a>
         </div>
     </footer>
 
     <!-- ================= PROJECT MODAL ================= -->
     <div id="project-modal" class="fixed inset-0 z-[60] hidden" role="dialog" aria-modal="true" aria-labelledby="pm-title">
-        <div class="modal-backdrop absolute inset-0 bg-ink-950/85 backdrop-blur-md"></div>
+        <div class="modal-backdrop absolute inset-0 backdrop-blur-md"></div>
         <div id="pm-scroll" class="relative h-full overflow-y-auto overscroll-contain">
             <div id="pm-frame" class="min-h-full flex items-start justify-center px-3 py-6 sm:p-10">
-                <div class="modal-panel relative w-full max-w-4xl rounded-2xl overflow-hidden border border-white/10 bg-ink-900 shadow-2xl">
+                <div class="modal-panel relative w-full max-w-4xl rounded-2xl overflow-hidden border b-line shadow-2xl">
                     <button id="pm-close" type="button" class="press absolute top-4 right-4 z-20 grid place-items-center w-11 h-11 rounded-full bg-ink-950/70 border border-white/15 text-white hover:bg-accent-300 hover:text-ink-950 hover:border-accent-300" aria-label="Close case study">
                         <i class="fa-solid fa-xmark" aria-hidden="true"></i>
                     </button>
                     <div class="relative bg-ink-850" style="aspect-ratio: 1920 / 717;">
                         <img id="pm-image" src="" alt="" class="w-full h-full object-cover" decoding="async">
-                        <div class="absolute inset-0 bg-gradient-to-t from-ink-900 via-ink-900/20 to-transparent"></div>
+                        <div class="absolute inset-0 modal-fade"></div>
                     </div>
                     <div class="relative px-5 sm:px-10 pb-10 -mt-2 sm:-mt-14">
-                        <p id="pm-kicker" class="label text-accent-300"></p>
+                        <p id="pm-kicker" class="label t-accent"></p>
                         <h2 id="pm-title" class="mt-3 font-display uppercase text-4xl sm:text-5xl leading-none metal"></h2>
-                        <p id="pm-subtitle" class="mt-4 text-slate-300 max-w-2xl"></p>
+                        <p id="pm-subtitle" class="mt-4 t-body max-w-2xl"></p>
                         <div class="mt-5 flex flex-wrap gap-2 text-xs">
-                            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-accent-300/30 bg-accent-300/10 text-accent-100"><i class="fa-solid fa-user-gear" aria-hidden="true"></i><span id="pm-role"></span></span>
-                            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-white/10 text-slate-300"><i class="fa-solid fa-users" aria-hidden="true"></i><span id="pm-team"></span></span>
+                            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border c-accent t-accent"><i class="fa-solid fa-user-gear" aria-hidden="true"></i><span id="pm-role"></span></span>
+                            <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border b-line t-body"><i class="fa-solid fa-users" aria-hidden="true"></i><span id="pm-team"></span></span>
                             <span id="pm-events" class="contents"></span>
                         </div>
-                        <div id="pm-metrics" class="mt-8 grid grid-cols-2 sm:grid-cols-3 rounded-xl border border-white/10 overflow-hidden"></div>
+                        <div id="pm-metrics" class="mt-8 grid grid-cols-2 sm:grid-cols-3 rounded-xl border b-line overflow-hidden"></div>
                         <div class="mt-10 grid md:grid-cols-[1fr_15rem] gap-10">
-                            <div class="space-y-8 text-[15px] leading-relaxed text-slate-400">
-                                <section><h3 class="label text-slate-500 mb-3">The problem</h3><p id="pm-problem"></p></section>
-                                <section><h3 class="label text-slate-500 mb-3">What we built</h3><p id="pm-build"></p></section>
-                                <section><h3 class="label text-slate-500 mb-3">My contribution</h3><p id="pm-contribution"></p></section>
-                                <section class="border-l-2 border-accent-300/60 pl-4"><h3 class="label text-slate-500 mb-3">What I learned</h3><p id="pm-learning" class="text-slate-300"></p></section>
+                            <div class="space-y-8 text-[15px] leading-relaxed t-muted">
+                                <section><h3 class="label t-faint mb-3">The problem</h3><p id="pm-problem"></p></section>
+                                <section><h3 class="label t-faint mb-3">What we built</h3><p id="pm-build"></p></section>
+                                <section><h3 class="label t-faint mb-3">My contribution</h3><p id="pm-contribution"></p></section>
+                                <section class="border-l-2 pl-4" style="border-color: var(--chip-b)"><h3 class="label t-faint mb-3">What I learned</h3><p id="pm-learning" class="t-body"></p></section>
                             </div>
                             <aside class="space-y-6">
-                                <div><h3 class="label text-slate-500 mb-3">Stack &amp; parts</h3><ul id="pm-stack" class="flex flex-wrap gap-1.5 font-mono text-[11px]"></ul></div>
+                                <div><h3 class="label t-faint mb-3">Stack &amp; parts</h3><ul id="pm-stack" class="flex flex-wrap gap-1.5 font-mono text-[11px]"></ul></div>
                                 <div id="pm-links" class="flex flex-col gap-2"></div>
                             </aside>
                         </div>
-                        <nav class="mt-12 pt-6 border-t border-white/10 flex items-center justify-between gap-4 text-sm" aria-label="Other projects">
-                            <button id="pm-prev" type="button" class="press inline-flex items-center gap-2 text-slate-400 hover:text-white text-left"><i class="fa-solid fa-arrow-left text-xs" aria-hidden="true"></i><span></span></button>
-                            <button id="pm-next" type="button" class="press inline-flex items-center gap-2 text-slate-400 hover:text-white text-right"><span></span><i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i></button>
+                        <nav class="mt-12 pt-6 border-t b-line flex items-center justify-between gap-4 text-sm" aria-label="Other projects">
+                            <button id="pm-prev" type="button" class="press inline-flex items-center gap-2 t-muted h-strong text-left"><i class="fa-solid fa-arrow-left text-xs" aria-hidden="true"></i><span></span></button>
+                            <button id="pm-next" type="button" class="press inline-flex items-center gap-2 t-muted h-strong text-right"><span></span><i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i></button>
                         </nav>
                     </div>
                 </div>
@@ -789,8 +791,7 @@
         /* =========================================================
            DATA
            ========================================================= */
-
-        // Awards. level: international | national | university
+        // level: international | national | university
         // place: 1 | 2 | 'fav' | 'special' | 'finalist' | 'medal'
         // date: 'YYYY-MM-DD', or 'YYYY' when only the year is known
         const AWARDS = [
@@ -820,8 +821,7 @@
 
         const PROJECTS = {
             pantarau: {
-                kicker: 'P/01 · Robotics · Environmental monitoring',
-                title: 'PANTARAU',
+                kicker: 'P/01 · Robotics · Environmental monitoring', title: 'PANTARAU',
                 subtitle: 'Low-cost unmanned surface vessel for sedimentation surveys and semi-automated waste collection.',
                 role: 'Project Manager & IoT Engineer', team: 'Team project', events: [],
                 image: './images/pantarau1.webp',
@@ -838,8 +838,7 @@
                 links: [{ url: 'https://drive.google.com/drive/folders/1mrL9YuUGdcmwX-Zbfbmd94bm-tokOU7F?usp=drive_link', icon: 'fa-brands fa-google-drive', label: 'Documentation' }]
             },
             aims: {
-                kicker: 'P/02 · Healthcare IoT',
-                title: 'AIMS',
+                kicker: 'P/02 · Healthcare IoT', title: 'AIMS',
                 subtitle: 'Smart infusion and patient vital-signs monitoring with spoken alerts at the nurse station.',
                 role: 'Project Manager & IoT Engineer', team: 'Team project',
                 events: ['Paper · We Are Student Conference 2026', 'ERIC UNJ 2025 · 1st Place'],
@@ -857,8 +856,7 @@
                 links: [{ url: 'https://drive.google.com/drive/folders/1Gn80snAqpBucLcFhv-HIGnoVIca_-bj0?usp=drive_link', icon: 'fa-brands fa-google-drive', label: 'Documentation' }]
             },
             nusa: {
-                kicker: 'P/03 · Educational research · Game design',
-                title: 'Nusa Kultura',
+                kicker: 'P/03 · Educational research · Game design', title: 'Nusa Kultura',
                 subtitle: 'A strategy board game for teaching Indonesian cultural heritage, tested with a pre/post study.',
                 role: 'Game Designer & Researcher', team: 'Team project', events: [],
                 image: './images/nusakultura1.webp',
@@ -875,8 +873,7 @@
                 links: [{ url: 'https://drive.google.com/drive/folders/1F0Wn5Yn_iR2TPrVtLLnjWPC-OoPoDEEG?usp=sharing', icon: 'fa-brands fa-google-drive', label: 'Documentation' }]
             },
             aspur: {
-                kicker: 'P/04 · Embedded AI · Smart home',
-                title: 'ASPUR',
+                kicker: 'P/04 · Embedded AI · Smart home', title: 'ASPUR',
                 subtitle: 'Asisten Dapur: a voice-driven kitchen assistant that turns what is in your fridge into a recipe.',
                 role: 'Project Manager & Embedded Systems Engineer', team: 'Team project', events: [],
                 image: './images/aspur1.webp',
@@ -909,7 +906,27 @@
         $('#year').textContent = new Date().getFullYear();
 
         /* =========================================================
-           COUNTS (derived from AWARDS so numbers never drift)
+           THEME TOGGLE (light default, choice remembered)
+           ========================================================= */
+        const root = document.documentElement;
+        const metaTheme = $('#meta-theme');
+        const toggles = $$('.theme-toggle');
+        const syncTheme = () => {
+            const dark = root.classList.contains('dark');
+            metaTheme.setAttribute('content', dark ? '#070b14' : '#f4f7fb');
+            toggles.forEach(t => t.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode'));
+        };
+        toggles.forEach(t => t.addEventListener('click', () => {
+            root.classList.add('theme-anim');
+            const dark = root.classList.toggle('dark');
+            try { localStorage.setItem('theme', dark ? 'dark' : 'light'); } catch (e) {}
+            syncTheme();
+            setTimeout(() => root.classList.remove('theme-anim'), 400);
+        }));
+        syncTheme();
+
+        /* =========================================================
+           COUNTS
            ========================================================= */
         const isFirst = a => a.place === 1;
         const COUNTS = {
@@ -917,8 +934,7 @@
             first: AWARDS.filter(isFirst).length,
             international: AWARDS.filter(a => a.level === 'international').length,
             national: AWARDS.filter(a => a.level === 'national').length,
-            university: AWARDS.filter(a => a.level === 'university').length,
-            '2026-first': AWARDS.filter(a => isFirst(a) && a.date.startsWith('2026')).length
+            university: AWARDS.filter(a => a.level === 'university').length
         };
         $$('[data-count]').forEach(n => { n.textContent = COUNTS[n.dataset.count] ?? ''; });
         $$('[data-countup]').forEach(n => {
@@ -931,13 +947,7 @@
            NAV
            ========================================================= */
         const navShell = $('#nav-shell');
-        const onScroll = () => {
-            const s = window.scrollY > 16;
-            navShell.classList.toggle('bg-ink-900/75', s);
-            navShell.classList.toggle('backdrop-blur-xl', s);
-            navShell.classList.toggle('border-white/[0.06]', s);
-            navShell.classList.toggle('border-transparent', !s);
-        };
+        const onScroll = () => navShell.classList.toggle('nav-scrolled', window.scrollY > 16);
         window.addEventListener('scroll', onScroll, { passive: true });
         onScroll();
 
@@ -1011,22 +1021,16 @@
         }
 
         /* =========================================================
-           HERO: glow follows cursor, portrait parallax
+           HERO: glow follows the cursor (photo itself stays still and sharp)
            ========================================================= */
-        const stage = $('#hero-stage'), portrait = $('#portrait'), glow = $('.hero-glow');
-        if (finePointer && !reduceMotion && stage) {
+        const stage = $('#hero-stage'), glow = $('.hero-glow');
+        if (finePointer && !reduceMotion && stage && glow) {
             stage.addEventListener('pointermove', e => {
                 const host = glow.parentElement.getBoundingClientRect();
                 glow.style.setProperty('--gx', (e.clientX - host.left) + 'px');
                 glow.style.setProperty('--gy', (e.clientY - host.top) + 'px');
-                const r = stage.getBoundingClientRect();
-                const nx = (e.clientX - r.left) / r.width - 0.5, ny = (e.clientY - r.top) / r.height - 0.5;
-                portrait.style.transform = `translate3d(${(nx * -14).toFixed(1)}px, ${(ny * -8).toFixed(1)}px, 0)`;
             });
-            stage.addEventListener('pointerleave', () => {
-                glow.style.removeProperty('--gx'); glow.style.removeProperty('--gy');
-                portrait.style.transform = '';
-            });
+            stage.addEventListener('pointerleave', () => { glow.style.removeProperty('--gx'); glow.style.removeProperty('--gy'); });
         }
 
         /* =========================================================
@@ -1037,11 +1041,8 @@
             const on = t === active;
             t.setAttribute('aria-selected', String(on));
             t.tabIndex = on ? 0 : -1;
-            t.classList.toggle('bg-accent-300', on);
-            t.classList.toggle('text-ink-950', on);
-            t.classList.toggle('font-semibold', on);
-            t.classList.toggle('text-slate-400', !on);
-            t.classList.toggle('hover:text-white', !on);
+            ['bg-accent-300', 'text-ink-950', 'font-semibold'].forEach(c => t.classList.toggle(c, on));
+            ['t-muted', 'h-strong'].forEach(c => t.classList.toggle(c, !on));
             const panel = document.getElementById(t.getAttribute('aria-controls'));
             panel.hidden = !on;
             if (on) { panel.classList.remove('fade-up'); void panel.offsetWidth; panel.classList.add('fade-up'); }
@@ -1060,18 +1061,14 @@
            AWARDS
            ========================================================= */
         const PLACE_ICON = {
-            1: ['fa-trophy', 'text-amber-300 bg-amber-300/10 border-amber-300/25'],
-            2: ['fa-medal', 'text-slate-200 bg-white/5 border-white/15'],
-            medal: ['fa-medal', 'text-slate-200 bg-white/5 border-white/15'],
-            fav: ['fa-heart', 'text-accent-200 bg-accent-300/10 border-accent-300/25'],
-            special: ['fa-star', 'text-accent-200 bg-accent-300/10 border-accent-300/25'],
-            finalist: ['fa-flag-checkered', 'text-slate-300 bg-white/5 border-white/10']
+            1: ['fa-trophy', 't-gold c-gold'],
+            2: ['fa-medal', 't-strong s-soft b-line'],
+            medal: ['fa-medal', 't-strong s-soft b-line'],
+            fav: ['fa-heart', 't-accent c-accent'],
+            special: ['fa-star', 't-accent c-accent'],
+            finalist: ['fa-flag-checkered', 't-muted s-soft b-line']
         };
-        const LEVEL_BADGE = {
-            international: 'border-accent-300/35 text-accent-200',
-            national: 'border-white/20 text-slate-300',
-            university: 'border-white/10 text-slate-500'
-        };
+        const LEVEL_BADGE = { international: 'c-accent-b t-accent', national: 'b-line t-body', university: 'b-line t-faint' };
         const groupsHost = $('#award-groups');
 
         function awardCard(a) {
@@ -1082,28 +1079,29 @@
             const body = el('div', 'min-w-0 flex-1');
             const top = el('div', 'flex items-start justify-between gap-3');
             top.append(
-                el('p', 'font-semibold text-white leading-snug', a.result),
+                el('p', 'font-semibold t-strong leading-snug', a.result),
                 el('span', `shrink-0 mt-0.5 font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded border ${LEVEL_BADGE[a.level]}`, a.level)
             );
             body.append(top);
-            if (a.extra) body.append(el('p', 'mt-1 text-xs text-accent-200', a.extra));
-            body.append(el('p', 'mt-1.5 text-sm text-slate-300', a.event));
-            body.append(el('p', 'mt-1 text-xs text-slate-500', [a.org, fmtDate(a.date)].filter(Boolean).join(' · ')));
+            if (a.extra) body.append(el('p', 'mt-1 text-xs t-accent', a.extra));
+            body.append(el('p', 'mt-1.5 text-sm t-body', a.event));
+            body.append(el('p', 'mt-1 text-xs t-faint', [a.org, fmtDate(a.date)].filter(Boolean).join(' · ')));
             li.append(badge, body);
             return li;
         }
 
         function renderAwards(filter) {
+            const key = d => d.padEnd(10, '-00');
             const list = AWARDS
                 .filter(a => filter === 'all' || (filter === 'first' ? isFirst(a) : a.level === filter))
-                .sort((a, b) => (b.date.padEnd(10, '-00') > a.date.padEnd(10, '-00') ? 1 : -1));
+                .sort((a, b) => (key(b.date) > key(a.date) ? 1 : -1));
             const byYear = new Map();
             list.forEach(a => { const y = a.date.slice(0, 4); if (!byYear.has(y)) byYear.set(y, []); byYear.get(y).push(a); });
             const frag = document.createDocumentFragment();
             byYear.forEach((items, year) => {
                 const sec = el('section', 'fade-up');
                 const head = el('div', 'flex items-baseline gap-4 mb-4');
-                head.append(el('h3', 'font-display text-3xl metal leading-none', year), el('span', 'flex-1 h-px bg-white/[0.08]'), el('span', 'font-mono text-xs text-slate-500', `${items.length} result${items.length > 1 ? 's' : ''}`));
+                head.append(el('h3', 'font-display text-3xl metal leading-none', year), el('span', 'flex-1 h-px s-line'), el('span', 'font-mono text-xs t-faint', `${items.length} result${items.length > 1 ? 's' : ''}`));
                 const ul = el('ul', 'grid md:grid-cols-2 gap-3');
                 items.forEach(a => ul.append(awardCard(a)));
                 sec.append(head, ul);
@@ -1116,8 +1114,8 @@
         const paintFilters = active => filterBtns.forEach(b => {
             const on = b.dataset.filter === active;
             b.setAttribute('aria-pressed', String(on));
-            b.classList.toggle('bg-accent-300', on); b.classList.toggle('text-ink-950', on); b.classList.toggle('border-accent-300', on); b.classList.toggle('font-semibold', on);
-            b.classList.toggle('border-white/15', !on); b.classList.toggle('text-slate-300', !on); b.classList.toggle('hover:border-white/40', !on);
+            ['bg-accent-300', 'text-ink-950', 'border-accent-300', 'font-semibold'].forEach(c => b.classList.toggle(c, on));
+            ['b-line', 't-body', 'h-strong'].forEach(c => b.classList.toggle(c, !on));
         });
         filterBtns.forEach(b => b.addEventListener('click', () => { paintFilters(b.dataset.filter); renderAwards(b.dataset.filter); }));
         paintFilters('all');
@@ -1138,17 +1136,17 @@
             $('#pm-role').textContent = p.role;
             $('#pm-team').textContent = p.team;
             $('#pm-events').replaceChildren(...p.events.map(ev => {
-                const s = el('span', 'inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-amber-300/30 bg-amber-300/5 text-amber-200');
+                const s = el('span', 'inline-flex items-center gap-2 px-3 py-1.5 rounded-full border c-gold t-gold');
                 s.append(el('i', ev.startsWith('Paper') ? 'fa-solid fa-file-lines' : 'fa-solid fa-trophy'), document.createTextNode(ev));
                 return s;
             }));
             ['problem', 'build', 'contribution', 'learning'].forEach(k => { $('#pm-' + k).textContent = p[k]; });
             $('#pm-metrics').replaceChildren(...p.metrics.map((m, i) => {
-                const c = el('div', 'p-4 sm:p-5 bg-white/[0.02] border-white/10 ' + (i === 0 ? 'border-r' : i === 1 ? 'sm:border-r' : 'col-span-2 sm:col-span-1 border-t sm:border-t-0'));
-                c.append(el('p', 'text-xl sm:text-2xl font-light text-white', m.value), el('p', 'mt-1 text-xs text-slate-400 leading-snug', m.label));
+                const c = el('div', 'p-4 sm:p-5 s-soft b-line ' + (i === 0 ? 'border-r' : i === 1 ? 'sm:border-r' : 'col-span-2 sm:col-span-1 border-t sm:border-t-0'));
+                c.append(el('p', 'text-xl sm:text-2xl font-light t-strong', m.value), el('p', 'mt-1 text-xs t-muted leading-snug', m.label));
                 return c;
             }));
-            $('#pm-stack').replaceChildren(...p.stack.map(s => el('li', 'px-2 py-1 rounded border border-white/10 text-slate-300', s)));
+            $('#pm-stack').replaceChildren(...p.stack.map(s => el('li', 'px-2 py-1 rounded border b-line t-body', s)));
             $('#pm-links').replaceChildren(...p.links.map(l => {
                 const a = el('a', 'press inline-flex items-center justify-center gap-2 px-4 py-3 btn-metal text-[11px] font-semibold tracking-[0.18em] uppercase');
                 a.href = l.url; a.target = '_blank'; a.rel = 'noopener';
